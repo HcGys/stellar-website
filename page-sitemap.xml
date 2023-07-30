@@ -46,15 +46,6 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/pages/</loc>
-        <lastmod>2023-07-22T06:57:34.617Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/</loc>
         <lastmod>2023-07-22T06:57:34.617Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -64,7 +55,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/theme-settings/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/pages/</loc>
         <lastmod>2023-07-22T06:57:34.617Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -74,6 +65,15 @@
     
     <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/wiki-settings/</loc>
+        <lastmod>2023-07-22T06:57:34.617Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/theme-settings/</loc>
         <lastmod>2023-07-22T06:57:34.617Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -127,15 +127,6 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/nexus/</loc>
-        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://stellar.listentothewind.cn/wiki/podspec.sh/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -145,7 +136,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/resume/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/nexus/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -154,7 +145,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/prohud/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/resume/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -181,16 +172,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/git-server/</loc>
-        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/github/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/prohud/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -208,7 +190,25 @@
     
     
     <url>
+        <loc>https://stellar.listentothewind.cn/wiki/git/git-server/</loc>
+        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://stellar.listentothewind.cn/wiki/git/usage/</loc>
+        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://stellar.listentothewind.cn/wiki/git/github/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -226,15 +226,6 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/prohud/custom/</loc>
-        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://stellar.listentothewind.cn/wiki/prohud/getting-started/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -244,7 +235,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/prohud/guard/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/prohud/custom/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -253,7 +244,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/prohud/toast/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/prohud/guard/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -272,6 +263,15 @@
     
     <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/advanced-settings/</loc>
+        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://stellar.listentothewind.cn/wiki/prohud/toast/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>

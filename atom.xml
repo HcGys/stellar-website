@@ -150,9 +150,9 @@
     
     <category term="iOS" scheme="https://stellar.listentothewind.cn/blog/tags/ios/"/>
     
-    <category term="开源库" scheme="https://stellar.listentothewind.cn/blog/tags/%E5%BC%80%E6%BA%90%E5%BA%93/"/>
-    
     <category term="链式语法" scheme="https://stellar.listentothewind.cn/blog/tags/%E9%93%BE%E5%BC%8F%E8%AF%AD%E6%B3%95/"/>
+    
+    <category term="开源库" scheme="https://stellar.listentothewind.cn/blog/tags/%E5%BC%80%E6%BA%90%E5%BA%93/"/>
     
     <category term="ObjC" scheme="https://stellar.listentothewind.cn/blog/tags/objc/"/>
     
