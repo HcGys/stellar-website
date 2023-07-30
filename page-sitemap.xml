@@ -82,15 +82,6 @@
     
     
     <url>
-        <loc>https://xaoxuu.com/wiki/axkit/</loc>
-        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://xaoxuu.com/wiki/git/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -100,7 +91,7 @@
     
     
     <url>
-        <loc>https://xaoxuu.com/wiki/heartmate/</loc>
+        <loc>https://xaoxuu.com/wiki/axkit/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -110,6 +101,15 @@
     
     <url>
         <loc>https://xaoxuu.com/wiki/hexo.sh/</loc>
+        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://xaoxuu.com/wiki/heartmate/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -128,15 +128,6 @@
     
     <url>
         <loc>https://xaoxuu.com/wiki/nexus/</loc>
-        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://xaoxuu.com/wiki/podspec.sh/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -181,7 +172,7 @@
     
     
     <url>
-        <loc>https://xaoxuu.com/wiki/git/git-server/</loc>
+        <loc>https://xaoxuu.com/wiki/podspec.sh/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -208,7 +199,7 @@
     
     
     <url>
-        <loc>https://xaoxuu.com/wiki/git/usage/</loc>
+        <loc>https://xaoxuu.com/wiki/git/git-server/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -217,7 +208,7 @@
     
     
     <url>
-        <loc>https://xaoxuu.com/wiki/prohud/alert/</loc>
+        <loc>https://xaoxuu.com/wiki/git/usage/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -235,7 +226,7 @@
     
     
     <url>
-        <loc>https://xaoxuu.com/wiki/prohud/getting-started/</loc>
+        <loc>https://xaoxuu.com/wiki/prohud/alert/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -253,6 +244,15 @@
     
     
     <url>
+        <loc>https://xaoxuu.com/wiki/prohud/getting-started/</loc>
+        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://xaoxuu.com/wiki/prohud/scene/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -262,7 +262,7 @@
     
     
     <url>
-        <loc>https://xaoxuu.com/wiki/prohud/toast/</loc>
+        <loc>https://xaoxuu.com/wiki/stellar/advanced-settings/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -271,7 +271,7 @@
     
     
     <url>
-        <loc>https://xaoxuu.com/wiki/stellar/advanced-settings/</loc>
+        <loc>https://xaoxuu.com/wiki/prohud/toast/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
