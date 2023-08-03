@@ -11,7 +11,7 @@
     
     <url>
         <loc>https://stellar.listentothewind.cn/about/</loc>
-        <lastmod>2023-08-03T16:36:06.297Z</lastmod>
+        <lastmod>2023-08-03T16:41:13.117Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
     </url>
@@ -82,7 +82,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/data/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/express/</loc>
         <lastmod>2023-08-02T10:29:06.522Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -91,7 +91,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/express/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/data/</loc>
         <lastmod>2023-08-02T10:29:06.522Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -118,7 +118,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/notes/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/pages/</loc>
         <lastmod>2023-08-02T10:29:06.512Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -127,7 +127,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/pages/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/notes/</loc>
         <lastmod>2023-08-02T10:29:06.512Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -235,7 +235,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/usage/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/git/install-and-config/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -244,7 +244,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/install-and-config/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/git/usage/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
