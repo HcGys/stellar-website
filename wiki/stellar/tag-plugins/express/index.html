@@ -48,7 +48,7 @@
               // mermaid.render(id, html, function (svgCode) {
               //   el.innerHTML = svgCode;
               // });
-              const { svg, bindFunctions } = await mermaid.render(id, html, el);
+              const { svg, bindFunctions } = await mermaid.render(id, html);
               el.innerHTML = svg;
               console.log(svg);
               // bindFunctions?.(el);
