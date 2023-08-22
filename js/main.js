@@ -194,7 +194,7 @@ const init = {
               var codeCopyBtn = code.querySelector('.copy-btn');
               codeCopyBtn.style.right = Number(codeBeforeWidth) + Number(codeBeforePadding) * 2 + 'px';
               codeCopyBtn.classList.add('drew');
-            })
+            });
           }
         if (stellar.plugins.mermaid) {
           // 修复tab里面display:none时因获取不到宽度而导致宽度错误的mermaid图表，并且只会绘制一次
