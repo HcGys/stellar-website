@@ -203,12 +203,12 @@ const init = {
           if (mermaidFirstNode && !mermaidFirstNode.classList.contains('drew')) {
             var mermaidNodes = tActive.querySelectorAll('.mermaid');
             alert(mermaidNodes[0].innerHTML);
-            mermaid.run({
+            await mermaid.run({
               suppressErrors: true,
               nodes: mermaidNodes,
             });
             alert('mermaids of in tab第一次渲染！');
-            await mermaidNodes.forEach(m=>{
+            mermaidNodes.forEach(m=>{
               m.classList.add('drew');
             });
           }
