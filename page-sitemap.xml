@@ -46,15 +46,6 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/wiki-settings/</loc>
-        <lastmod>2023-08-02T10:29:06.525Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/widgets/</loc>
         <lastmod>2023-08-02T10:29:06.525Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -64,7 +55,25 @@
     
     
     <url>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/wiki-settings/</loc>
+        <lastmod>2023-08-02T10:29:06.525Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/</loc>
+        <lastmod>2023-08-02T10:29:06.522Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/theme-settings/</loc>
         <lastmod>2023-08-02T10:29:06.522Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -83,15 +92,6 @@
     
     <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/container/</loc>
-        <lastmod>2023-08-02T10:29:06.522Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/theme-settings/</loc>
         <lastmod>2023-08-02T10:29:06.522Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -154,15 +154,6 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/contributors/</loc>
-        <lastmod>2023-08-02T10:29:06.508Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/comments/</loc>
         <lastmod>2023-08-02T10:29:06.508Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -173,6 +164,15 @@
     
     <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/examples/</loc>
+        <lastmod>2023-08-02T10:29:06.508Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/contributors/</loc>
         <lastmod>2023-08-02T10:29:06.508Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
