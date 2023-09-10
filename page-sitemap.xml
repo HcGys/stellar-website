@@ -11,7 +11,7 @@
     
     <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/read/</loc>
-        <lastmod>2023-09-09T17:43:32.491Z</lastmod>
+        <lastmod>2023-09-10T04:34:08.416Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
     </url>
@@ -163,7 +163,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/contributors/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/comments/</loc>
         <lastmod>2023-08-02T10:29:06.508Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -172,7 +172,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/comments/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/contributors/</loc>
         <lastmod>2023-08-02T10:29:06.508Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
