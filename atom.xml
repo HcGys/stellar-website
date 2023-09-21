@@ -6,7 +6,7 @@
   <link href="https://stellar.listentothewind.cn/atom.xml" rel="self"/>
   
   <link href="https://stellar.listentothewind.cn/"/>
-  <updated>2020-08-22T16:00:00.000Z</updated>
+  <updated>2023-09-21T16:50:39.757Z</updated>
   <id>https://stellar.listentothewind.cn/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客测试</title>
+    <link href="https://stellar.listentothewind.cn/blog/2023-09-22-%E6%B5%8B%E8%AF%95/"/>
+    <id>https://stellar.listentothewind.cn/blog/2023-09-22-%E6%B5%8B%E8%AF%95/</id>
+    <published>2023-09-21T16:50:39.757Z</published>
+    <updated>2023-09-21T16:50:39.757Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一个博客测试文档。</p><span id="more"></span><h1>测试</h1><blockquote><p>这是一个博客测试文档。</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;这是一个博客测试文档。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="测试" scheme="https://stellar.listentothewind.cn/blog/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>静态博客使用 Issues API 来实现动态发布友链、书签</title>
