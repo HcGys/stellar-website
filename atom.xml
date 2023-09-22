@@ -30,10 +30,10 @@
     
     
     
-    <category term="博客" scheme="https://stellar.listentothewind.cn/blog/categories/%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="测试" scheme="https://stellar.listentothewind.cn/blog/categories/%E5%8D%9A%E5%AE%A2/%E6%B5%8B%E8%AF%95/"/>
+    <category term="博客" scheme="https://stellar.listentothewind.cn/blog/tags/%E5%8D%9A%E5%AE%A2/"/>
     
+    <category term="测试" scheme="https://stellar.listentothewind.cn/blog/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
