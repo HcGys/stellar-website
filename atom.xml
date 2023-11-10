@@ -6,7 +6,7 @@
   <link href="https://stellar.listentothewind.cn/atom.xml" rel="self"/>
   
   <link href="https://stellar.listentothewind.cn/"/>
-  <updated>2023-11-10T08:44:55.741Z</updated>
+  <updated>2023-11-10T08:48:11.215Z</updated>
   <id>https://stellar.listentothewind.cn/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客测试</title>
+    <link href="https://stellar.listentothewind.cn/blog/2023-11-10-%E6%B5%8B%E8%AF%952%20copy%208/"/>
+    <id>https://stellar.listentothewind.cn/blog/2023-11-10-%E6%B5%8B%E8%AF%952%20copy%208/</id>
+    <published>2023-11-10T08:48:11.215Z</published>
+    <updated>2023-11-10T08:48:11.215Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="这是一个测试">这是一个测试</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;这是一个测试&quot;&gt;这是一个测试&lt;/h2&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="博客" scheme="https://stellar.listentothewind.cn/blog/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="测试" scheme="https://stellar.listentothewind.cn/blog/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客测试</title>
+    <link href="https://stellar.listentothewind.cn/blog/2023-11-10-%E6%B5%8B%E8%AF%952%20copy%207/"/>
+    <id>https://stellar.listentothewind.cn/blog/2023-11-10-%E6%B5%8B%E8%AF%952%20copy%207/</id>
+    <published>2023-11-10T08:48:10.641Z</published>
+    <updated>2023-11-10T08:48:10.641Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="这是一个测试">这是一个测试</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;这是一个测试&quot;&gt;这是一个测试&lt;/h2&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="博客" scheme="https://stellar.listentothewind.cn/blog/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="测试" scheme="https://stellar.listentothewind.cn/blog/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客测试</title>
+    <link href="https://stellar.listentothewind.cn/blog/2023-11-10-%E6%B5%8B%E8%AF%952%20copy%206/"/>
+    <id>https://stellar.listentothewind.cn/blog/2023-11-10-%E6%B5%8B%E8%AF%952%20copy%206/</id>
+    <published>2023-11-10T08:48:08.768Z</published>
+    <updated>2023-11-10T08:48:08.768Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="这是一个测试">这是一个测试</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;这是一个测试&quot;&gt;这是一个测试&lt;/h2&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="博客" scheme="https://stellar.listentothewind.cn/blog/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+    <category term="测试" scheme="https://stellar.listentothewind.cn/blog/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>博客测试</title>
