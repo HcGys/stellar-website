@@ -1,4 +1,4 @@
-const StellarTimeline={reactions:{"+1":"👍","-1":"👎",laugh:"😀",hooray:"🎉",confused:"😕",heart:"❤️",rocket:"🚀",eyes:"👀"},colors:[],dynamicColor:()=>{let s="",i="";StellarTimeline.colors.forEach((e,t)=>{var{r:e,g:r,b:l}=util.hexToRgba(e),e=util.rgbToHsl(e,r,l)["h"],r=`hsl(${e}, 90, 84)`,l=`hsl(${e}, 90, 24)`,a=`hsl(${e}, 20, 20)`,e=`hsl(${e}, 80, 72)`;s+=`
+const StellarTimeline={reactions:{"+1":"👍","-1":"👎",laugh:"😀",hooray:"🎉",confused:"😕",heart:"❤️",rocket:"🚀",eyes:"👀"},colors:[],dynamicColor:()=>{let s="",i="";StellarTimeline.colors.forEach((e,t)=>{var{r:e,g:r,b:l}=util.hexToRgba(e),e=util.rgbToHsl(e,r,l)["h"],r=`hsl(${e}deg, 90, 84)`,l=`hsl(${e}deg, 90, 24)`,a=`hsl(${e}, 20, 20)`,e=`hsl(${e}deg, 80, 72)`;s+=`
       --timeline-label-bg-${t}: ${r};
       --timeline-label-text-color-${t}: ${l};
       `,i+=`
