@@ -1,4 +1,4 @@
-const StellarTimeline={reactions:{"+1":"👍","-1":"👎",laugh:"😀",hooray:"🎉",confused:"😕",heart:"❤️",rocket:"🚀",eyes:"👀"},color_index:0,dynamicColor:e=>{let i="",o="",n=StellarTimeline.color_index-e.length;e.forEach((e,t)=>{var{r:e,g:r,b:l}=util.hexToRgba(e),e=util.rgbToHsl(e,r,l)["h"],r=`hsl(${e}deg, 90%, 84%)`,l=`hsl(${e}deg, 90%, 24%)`,a=`hsl(${e}deg, 20%, 20%)`,e=`hsl(${e}deg, 80%, 72%)`;i+=`
+const StellarTimeline={reactions:{"+1":"👍","-1":"👎",laugh:"😀",hooray:"🎉",confused:"😕",heart:"❤️",rocket:"🚀",eyes:"👀"},color_index:0,dynamicColor:e=>{let i="",o="",n=StellarTimeline.color_index-e.length;e.forEach((e,t)=>{var{r:e,g:r,b:l}=util.hexToRgba(e),e=util.rgbToHsl(e,r,l)["h"],r=`hsl(${e}deg, 75%, 75%)`,l=`hsl(${e}deg, 90%, 24%)`,a=`hsl(${e}deg, 25%, 25%)`,e=`hsl(${e}deg, 80%, 72%)`;i+=`
       --timeline-label-bg-${n+t}: ${r};
       --timeline-label-text-color-${n+t}: ${l};
       `,o+=`
