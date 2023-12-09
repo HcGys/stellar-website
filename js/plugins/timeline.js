@@ -1,9 +1,9 @@
-const StellarTimeline={reactions:{"+1":"👍","-1":"👎",laugh:"😀",hooray:"🎉",confused:"😕",heart:"❤️",rocket:"🚀",eyes:"👀"},color_index:0,dynamicColor:e=>{let i="",o="";e.forEach((e,t)=>{var{r:e,g:r,b:l}=util.hexToRgba(e),e=util.rgbToHsl(e,r,l)["h"],r=`hsl(${e}deg, 90%, 84%)`,l=`hsl(${e}deg, 90%, 24%)`,a=`hsl(${e}deg, 20%, 20%)`,e=`hsl(${e}deg, 80%, 72%)`;i+=`
-      --timeline-label-bg-${StellarTimeline.color_index+t}: ${r};
-      --timeline-label-text-color-${StellarTimeline.color_index+t}: ${l};
+const StellarTimeline={reactions:{"+1":"👍","-1":"👎",laugh:"😀",hooray:"🎉",confused:"😕",heart:"❤️",rocket:"🚀",eyes:"👀"},color_index:0,dynamicColor:e=>{let i="",o="",n=StellarTimeline.color_index-e.length;e.forEach((e,t)=>{var{r:e,g:r,b:l}=util.hexToRgba(e),e=util.rgbToHsl(e,r,l)["h"],r=`hsl(${e}deg, 90%, 84%)`,l=`hsl(${e}deg, 90%, 24%)`,a=`hsl(${e}deg, 20%, 20%)`,e=`hsl(${e}deg, 80%, 72%)`;i+=`
+      --timeline-label-bg-${n+t}: ${r};
+      --timeline-label-text-color-${n+t}: ${l};
       `,o+=`
-        --timeline-label-bg-${StellarTimeline.color_index+t}: ${a};
-        --timeline-label-text-color-${StellarTimeline.color_index+t}: ${e};
+        --timeline-label-bg-${n+t}: ${a};
+        --timeline-label-text-color-${n+t}: ${e};
       `});var e=`
       :root {
         ${i}
