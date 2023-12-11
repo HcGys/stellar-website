@@ -1,1 +1,229 @@
-function init(){var e=document.querySelector("article.md-text");const o=e&&(e.classList.contains("sa-load-hidden")||e.classList.contains("blur")),d=document.querySelector("body");document.querySelectorAll("figure.highlight").forEach(i=>{var e=i.querySelector(".code"),s=document.createElement("div"),t=(s.classList.add("code-btns"),document.createElement("div"));if(t.classList.add("btn"),t.classList.add("fullscreen-btn"),t.innerHTML=`<i class='fa-duotone fa-expand fa-fw'></i><span class="desc">放大</span>`,!o){const codeFullscreenBtnDesc=t.querySelector("span"),codeFullscreenBtnIcon=t.querySelector("i")}t.addEventListener("click",()=>{if(o){document.querySelector(".fullscreen")?.remove();let e=i.cloneNode(!0),s=(e.classList.add("fullscreen"),e.querySelector(".copy-btn")),t=s.querySelector("i"),c=s.querySelector("span");s.addEventListener("click",async()=>{await copyCode(e.querySelector(".code").children[0]?.innerText),c.innerText=stellar.GLOBAL_CONFIG.plugins.copycode.success_text,s.classList.add("success"),t.classList.remove("fa-copy"),t.classList.remove("fa-circle-exclamation"),t.classList.add("fa-circle-check"),util.messageCopyright(),setTimeout(()=>{c.innerText=stellar.GLOBAL_CONFIG.plugins.copycode.default_text,s.classList.remove("success"),t.classList.remove("fa-check"),t.classList.add("fa-copy")},2e3)});var a=e.querySelector(".fullscreen-btn"),l=a.querySelector("i"),n=a.querySelector("span");a.addEventListener("click",()=>{d.removeAttribute("style"),util.animateOut(e,"slide-out .5s")}),l.classList.remove("fa-expand"),l.classList.add("fa-compress"),n.innerText="缩小",d.appendChild(e),d.setAttribute("style","overflow:hidden;"),util.animateIn(e,"slide-in .5s")}else stellar.requestAnimationFrame(()=>{i.classList.toggle("fullscreen"),i.classList.contains("fullscreen")?(codeFullscreenBtnIcon.classList.remove("fa-expand"),codeFullscreenBtnIcon.classList.add("fa-compress"),codeFullscreenBtnDesc.innerText="缩小",d.setAttribute("style","overflow:hidden;")):(codeFullscreenBtnIcon.classList.remove("fa-compress"),codeFullscreenBtnIcon.classList.add("fa-expand"),codeFullscreenBtnDesc.innerText="放大",d.removeAttribute("style"),util.animateOut(i,"slide-out .5s"))})}),s.appendChild(t);var t=document.createElement("div"),c=(t.classList.add("btn"),t.classList.add("copy-btn"),t.innerHTML=`<i class='fa-duotone fa-copy fa-fw'></i><span class="desc">${stellar.GLOBAL_CONFIG.plugins.copycode.default_text}</span>`,t.querySelector("i")),a=t.querySelector("span"),t=(s.appendChild(t),copyCode(t,e,c,a),i.getAttribute("class").split(" ")[1]),e=document.createElement("div"),c=(e.classList.add("code-lang"),e.innerHTML=`<span>${t}</span>`,document.createElement("div")),a=(c.classList.add("code-btns-and-lang"),c.appendChild(s),c.appendChild(e),document.createElement("div")),t=(a.classList.add("code-tools"),i.querySelector(".highlight figcaption"));t?a.appendChild(t):((s=document.createElement("figcaption")).innerHTML=`<span>${stellar.GLOBAL_CONFIG.config.default.codeblock_figtext}</span>`,a.appendChild(s)),a.appendChild(c),i.insertBefore(a,i.children[0])})}function copyCode(s,t,c,a){s.onclick=e=>{e.stopPropagation(),t.focus();e=new Range,e.selectNodeContents(t),document.getSelection().removeAllRanges(),document.getSelection().addRange(e),e=document.getSelection().toString();util.writeClipText(e).then(()=>{util.messageCopyright(),a.innerText=stellar.GLOBAL_CONFIG.plugins.copycode.success_text,s.classList.add("success"),c.classList.remove("fa-copy"),c.classList.remove("fa-circle-exclamation"),c.classList.add("fa-circle-check"),setTimeout(()=>{a.innerText=stellar.GLOBAL_CONFIG.plugins.copycode.default_text,s.classList.remove("success"),c.classList.remove("fa-check"),c.classList.add("fa-copy")},2e3)}).catch(e=>{a.innerText=e,s.classList.add("warning"),c.classList.remove("fa-copy"),c.classList.add("fa-circle-exclamation"),hud.message("COPY错误",e,{icon:"fa-duotone fa-exclamation-square red",displayMode:1,time:9e3}),setTimeout(()=>{a.innerText=stellar.GLOBAL_CONFIG.plugins.copycode.default_text,s.classList.remove("warning"),c.classList.remove("fa-circle-exclamation"),c.classList.add("fa-copy")},2e3)})}}function copyLineCode(){document.querySelectorAll("button.copy-btn").forEach(c=>{c.onclick=e=>{e.stopPropagation();const s=c.firstChild;var e=c.previousSibling,t=e.value;e.focus(),e.select(),util.writeClipText(t).then(()=>{util.messageCopyright(),c.classList.add("success"),s.classList.remove("fa-calendar-lines"),s.classList.remove("fa-calendar-xmark"),s.classList.add("fa-calendar-check"),setTimeout(()=>{c.classList.remove("success"),s.classList.remove("fa-calendar-check"),s.classList.add("fa-calendar-lines")},2e3)}).catch(e=>{c.classList.add("warning"),s.classList.remove("fa-calendar-lines"),s.classList.add("fa-calendar-xmark"),hud.message("COPY错误",e,{icon:"fa-duotone fa-exclamation-square red",displayMode:1,time:9e3}),setTimeout(()=>{c.classList.remove("warning"),s.classList.remove("fa-calendar-xmark"),s.classList.add("fa-calendar-lines")},2e3)})}})}init(),copyLineCode();
+function init() {
+  const mdText = document.querySelector('article.md-text')
+  const fullWayFlag = mdText && (mdText.classList.contains('sa-load-hidden') || mdText.classList.contains('blur'))  // 包含这些样式时会导致fixed（要全屏元素的布局）相对mdText（文章容器）定位而不是整个页面，从而出现冲突，此时需要选择方案二来进行页面全屏切换
+  const bodyDiv = document.querySelector('body')
+  const highlightElementArr = document.querySelectorAll('figure.highlight')
+  highlightElementArr.forEach(hl => {
+    const code = hl.querySelector('.code')
+
+    const btnDiv = document.createElement('div');
+    btnDiv.classList.add('code-btns');
+
+    // fullscreen btn
+    const codeFullscreenBtn = document.createElement('div')
+    codeFullscreenBtn.classList.add('btn')
+    codeFullscreenBtn.classList.add('fullscreen-btn')
+    codeFullscreenBtn.innerHTML = `<i class='fa-duotone fa-expand fa-fw'></i><span class="desc">放大</span>`
+    if (!fullWayFlag) {
+      const codeFullscreenBtnDesc = codeFullscreenBtn.querySelector('span')
+      const codeFullscreenBtnIcon = codeFullscreenBtn.querySelector('i')
+    }
+    codeFullscreenBtn.addEventListener('click', ()=>{
+      if (!fullWayFlag) {
+        // 方案一：操作更少，速度更快（只是相对方案二而言，实际使用时区别不大）
+        stellar.requestAnimationFrame(()=>{
+          hl.classList.toggle('fullscreen');
+          if (hl.classList.contains('fullscreen')) {
+            codeFullscreenBtnIcon.classList.remove('fa-expand');
+            codeFullscreenBtnIcon.classList.add('fa-compress');
+            codeFullscreenBtnDesc.innerText = '缩小';
+            bodyDiv.setAttribute('style', 'overflow:hidden;');
+          } else {
+            codeFullscreenBtnIcon.classList.remove('fa-compress');
+            codeFullscreenBtnIcon.classList.add('fa-expand');
+            codeFullscreenBtnDesc.innerText = '放大';
+            bodyDiv.removeAttribute('style');
+            util.animateOut(hl, "slide-out .5s");
+          }
+        });
+      } else {
+        // 方案二：用于启用scroolanimate插件或模糊背景的时候
+        document.querySelector('.fullscreen')?.remove();
+
+        let fullEle = hl.cloneNode(true);
+        fullEle.classList.add('fullscreen');
+        let fullEleCopyBtn = fullEle.querySelector('.copy-btn')
+        let fullEleCopyBtnIcon = fullEleCopyBtn.querySelector('i');
+        let fullEleCopyBtnDesc = fullEleCopyBtn.querySelector('span');
+        fullEleCopyBtn.addEventListener('click', async () => {
+          let fullElvCode = fullEle.querySelector('.code')
+          let currentCodeElement = fullElvCode.children[0]?.innerText
+          await copyCode(currentCodeElement)
+    
+          fullEleCopyBtnDesc.innerText = stellar.GLOBAL_CONFIG.plugins.copycode.success_text
+          fullEleCopyBtn.classList.add('success')
+          fullEleCopyBtnIcon.classList.remove('fa-copy')
+          fullEleCopyBtnIcon.classList.remove('fa-circle-exclamation')
+          fullEleCopyBtnIcon.classList.add('fa-circle-check')
+          
+          util.messageCopyright()
+    
+          setTimeout(() => {
+            fullEleCopyBtnDesc.innerText = stellar.GLOBAL_CONFIG.plugins.copycode.default_text
+            fullEleCopyBtn.classList.remove('success')
+            fullEleCopyBtnIcon.classList.remove('fa-check')
+            fullEleCopyBtnIcon.classList.add('fa-copy')
+          },2000)
+        })
+
+        let fullEleFullscreenBtn = fullEle.querySelector('.fullscreen-btn');
+        let fullEleFullscreenBtnIcon = fullEleFullscreenBtn.querySelector('i');
+        let fullEleFullscreenBtnDesc = fullEleFullscreenBtn.querySelector('span');
+
+        fullEleFullscreenBtn.addEventListener('click', ()=>{
+          bodyDiv.removeAttribute('style');
+          util.animateOut(fullEle, "slide-out .5s");
+        });
+
+        fullEleFullscreenBtnIcon.classList.remove('fa-expand');
+        fullEleFullscreenBtnIcon.classList.add('fa-compress');
+        fullEleFullscreenBtnDesc.innerText = '缩小';
+
+        bodyDiv.appendChild(fullEle);
+        bodyDiv.setAttribute('style', 'overflow:hidden;');
+
+        util.animateIn(fullEle, "slide-in .5s");
+      }
+    })
+    
+    btnDiv.appendChild(codeFullscreenBtn);
+
+    // copy btn 
+    const codeCopyBtn = document.createElement('div')
+    codeCopyBtn.classList.add('btn')
+    codeCopyBtn.classList.add('copy-btn')
+    codeCopyBtn.innerHTML = `<i class='fa-duotone fa-copy fa-fw'></i><span class="desc">${stellar.GLOBAL_CONFIG.plugins.copycode.default_text}</span>`
+    const codeCopyBtnIcon = codeCopyBtn.querySelector('i');
+    const codeCopyBtnDesc = codeCopyBtn.querySelector('span');
+
+    btnDiv.appendChild(codeCopyBtn);
+
+    copyCode(codeCopyBtn, code, codeCopyBtnIcon, codeCopyBtnDesc);
+
+    // code-lang
+    let langName = hl.getAttribute('class').split(' ')[1]
+    const codeLang = document.createElement('div');
+    codeLang.classList.add('code-lang');
+    codeLang.innerHTML = `<span>${langName}</span>`;
+
+    const codeBtnsAndLang = document.createElement('div');
+    codeBtnsAndLang.classList.add('code-btns-and-lang');
+    codeBtnsAndLang.appendChild(btnDiv);
+    codeBtnsAndLang.appendChild(codeLang);
+
+    // code-tools
+    const codeTools = document.createElement('div');
+    codeTools.classList.add('code-tools');
+    let caption = hl.querySelector('.highlight figcaption');
+    if (caption) {
+      codeTools.appendChild(caption);
+    } else {
+      let newFig = document.createElement('figcaption');
+      newFig.innerHTML = `<span>${stellar.GLOBAL_CONFIG.config.default.codeblock_figtext}</span>`;
+      codeTools.appendChild(newFig);
+    }
+    codeTools.appendChild(codeBtnsAndLang);
+
+    hl.insertBefore(codeTools, hl.children[0]);
+
+  })
+}
+
+// 代码段复制
+function copyCode(codeCopyBtn, code, codeCopyBtnIcon, codeCopyBtnDesc) {
+  codeCopyBtn.onclick = e => {
+    e.stopPropagation();
+
+    code.focus();
+    const range = new Range();
+    range.selectNodeContents(code);
+    document.getSelection().removeAllRanges();
+    document.getSelection().addRange(range);
+
+    const str = document.getSelection().toString();
+    util.writeClipText(str).then(() => {
+      util.messageCopyright();
+
+      codeCopyBtnDesc.innerText = stellar.GLOBAL_CONFIG.plugins.copycode.success_text;
+      codeCopyBtn.classList.add('success');
+      codeCopyBtnIcon.classList.remove('fa-copy');
+      codeCopyBtnIcon.classList.remove('fa-circle-exclamation');
+      codeCopyBtnIcon.classList.add('fa-circle-check');
+
+      setTimeout(() => {
+        codeCopyBtnDesc.innerText = stellar.GLOBAL_CONFIG.plugins.copycode.default_text
+        codeCopyBtn.classList.remove('success')
+        codeCopyBtnIcon.classList.remove('fa-check')
+        codeCopyBtnIcon.classList.add('fa-copy')
+      },2000)
+    }).catch(e => {
+      codeCopyBtnDesc.innerText = e;
+      codeCopyBtn.classList.add('warning');
+      codeCopyBtnIcon.classList.remove('fa-copy');
+      codeCopyBtnIcon.classList.add('fa-circle-exclamation');
+
+      hud.message('COPY错误', e, {
+        icon: 'fa-duotone fa-exclamation-square red',
+        displayMode: 1,
+        time: 9000
+      });
+
+      setTimeout(() => {
+        codeCopyBtnDesc.innerText = stellar.GLOBAL_CONFIG.plugins.copycode.default_text;
+        codeCopyBtn.classList.remove('warning');
+        codeCopyBtnIcon.classList.remove('fa-circle-exclamation');
+        codeCopyBtnIcon.classList.add('fa-copy');
+      },2000);
+    })
+  }
+}
+
+// 代码段复制
+function copyLineCode() {
+  document.querySelectorAll('button.copy-btn').forEach(copyBtn=>{
+    copyBtn.onclick = e => {
+      e.stopPropagation();
+  
+      const icon = copyBtn.firstChild;
+      const copyInput = copyBtn.previousSibling;
+      const str = copyInput.value;
+
+      copyInput.focus();
+      copyInput.select();
+
+      util.writeClipText(str).then(() => {
+        util.messageCopyright();
+  
+        copyBtn.classList.add('success');
+        icon.classList.remove('fa-calendar-lines');
+        icon.classList.remove('fa-calendar-xmark');
+        icon.classList.add('fa-calendar-check');
+  
+        setTimeout(() => {
+          copyBtn.classList.remove('success')
+          icon.classList.remove('fa-calendar-check')
+          icon.classList.add('fa-calendar-lines')
+        },2000)
+      }).catch(e => {
+        copyBtn.classList.add('warning');
+        icon.classList.remove('fa-calendar-lines');
+        icon.classList.add('fa-calendar-xmark');
+  
+        hud.message('COPY错误', e, {
+          icon: 'fa-duotone fa-exclamation-square red',
+          displayMode: 1,
+          time: 9000
+        });
+  
+        setTimeout(() => {
+          copyBtn.classList.remove('warning');
+          icon.classList.remove('fa-calendar-xmark');
+          icon.classList.add('fa-calendar-lines');
+        },2000);
+      })
+    }
+  });
+}
+
+init();
+copyLineCode();
