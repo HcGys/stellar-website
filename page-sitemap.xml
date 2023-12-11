@@ -244,6 +244,15 @@
     
     
     <url>
+        <loc>https://stellar.listentothewind.cn/wiki/git/</loc>
+        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://stellar.listentothewind.cn/wiki/resume/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -272,15 +281,6 @@
     
     <url>
         <loc>https://stellar.listentothewind.cn/wiki/git/install-and-config/</loc>
-        <lastmod>2023-07-22T06:57:34.613Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/</loc>
         <lastmod>2023-07-22T06:57:34.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
