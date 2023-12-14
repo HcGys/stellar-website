@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>且听风吟</title>
-  <icon>https://static.listentothewind.cn/img/avatar.png</icon>
+  <icon>https://gcore.jsdelivr.net/gh/HcGys/DataSource/img/avatar.png</icon>
   <subtitle>君子坐而论道，少年起而行之 | stellar.listentothewind.cn</subtitle>
   <link href="https://stellar.listentothewind.cn/atom.xml" rel="self"/>
   
