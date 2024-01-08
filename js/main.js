@@ -1,1 +1,1059 @@
-console.log("\n%c Stellar v"+stellar.GLOBAL_CONFIG.version+" %c\n"+stellar.GLOBAL_CONFIG.github+"\n","color:#e8fafe;background:#03c7fa;padding:8px;border-radius:4px","margin-top:8px");let messageCopyrightShow=0;const util={diffDate:(e,t=!1)=>{var l,o,r,a=new Date,e=new Date(e),a=a.getTime()-e.getTime(),e=864e5;let s;return s=t?(t=a/e,o=a/36e5,r=a/6e4,12<(l=a/2592e6)?null:1<=l?parseInt(l)+" "+stellar.GLOBAL_CONFIG.config.date_suffix.month:1<=t?parseInt(t)+" "+stellar.GLOBAL_CONFIG.config.date_suffix.day:1<=o?parseInt(o)+" "+stellar.GLOBAL_CONFIG.config.date_suffix.hour:1<=r?parseInt(r)+" "+stellar.GLOBAL_CONFIG.config.date_suffix.min:stellar.GLOBAL_CONFIG.config.date_suffix.just):parseInt(a/e)},toggle:e=>{e=document.getElementById(e);e&&e.classList.toggle("display")},messageCopyright:()=>{stellar.GLOBAL_CONFIG.plugins.message.enable&&stellar.GLOBAL_CONFIG.plugins.message.copyright.enable&&messageCopyrightShow<1&&(messageCopyrightShow++,hud.message(stellar.GLOBAL_CONFIG.plugins.message.copyright.title,stellar.GLOBAL_CONFIG.plugins.message.copyright.message,{icon:stellar.GLOBAL_CONFIG.plugins.message.copyright.icon,transitionIn:"flipInX",transitionOut:"flipOutX",displayMode:1}))},writeClipText:async t=>{try{return await navigator.clipboard.writeText(t),await Promise.resolve()}catch(e){var l=document.createElement("textarea");l.setAttribute("readonly","readonly"),document.body.appendChild(l),l.innerHTML=t,l.select();try{var o=document.execCommand("copy");return document.body.removeChild(l),o&&"unsuccessful"!==o?Promise.resolve():Promise.reject("未经用户许可!")}catch(e){return document.body.removeChild(l),Promise.reject("当前浏览器不支持复制功能，请检查更新或更换其他浏览器操作!")}}},animateIn:(e,t)=>{e.style.display="block",e.style.animation=t},animateOut:(t,e)=>{t.addEventListener("animationend",function e(){t.style.display="",t.style.animation="",t.removeEventListener("animationend",e)}),t.style.animation=e},animateDelayedElements:(e,l,o)=>{document.querySelectorAll(e).forEach((e,t)=>{e.querySelectorAll(l).forEach((e,t)=>{e.style.animationDelay=o+.2*t+"s"})})},hexToRgba:e=>{let t=!1,l=e.slice(e.startsWith("#")?1:0);return 3===l.length?l=[...l].map(e=>e+e).join(""):8===l.length&&(t=!0),{r:(l=parseInt(l,16))>>>(t?24:16),g:(l&(t?16711680:65280))>>>(t?16:8),b:(l&(t?65280:255))>>>(t?8:0),a:t?255&l:1}},rgbToHsl:(e,t,l)=>{e/=255,t/=255,l/=255;var o=Math.max(e,t,l),r=o-Math.min(e,t,l),l=r?o===e?(t-l)/r:o===t?2+(l-e)/r:4+(e-t)/r:0;return{h:60*l<0?60*l+360:60*l,s:r=100*(r?o<=.5?r/(2*o-r):r/(2-(2*o-r)):0),l:100*(2*o-r)/2}}},hud={message:(e,t,l={},o=null)=>{function r(e,t,l,o){var{icon:l,time:r,position:a,transitionIn:s,transitionOut:n,messageColor:i,titleColor:c,backgroundColor:d,zindex:m,displayMode:u}=l;iziToast.show({layout:"2",icon:"Fontawesome",closeOnEscape:"true",displayMode:u||"replace",transitionIn:s||stellar.GLOBAL_CONFIG.plugins.message.transitionIn,transitionOut:n||stellar.GLOBAL_CONFIG.plugins.message.transitionOut,messageColor:i||stellar.GLOBAL_CONFIG.plugins.message.messageColor,titleColor:c||stellar.GLOBAL_CONFIG.plugins.message.titleColor,backgroundColor:d||stellar.GLOBAL_CONFIG.plugins.message.backgroundColor,zindex:m||stellar.GLOBAL_CONFIG.plugins.message.zindex,icon:l||stellar.GLOBAL_CONFIG.plugins.message.icon.default,timeout:r||stellar.GLOBAL_CONFIG.plugins.message.time.default,position:a||stellar.GLOBAL_CONFIG.plugins.message.position,title:e,message:t,onClosed:()=>{o&&o()}})}"undefined"==typeof iziToast?(stellar.loadCSS(stellar.GLOBAL_CONFIG.config.cdn.izitoast_css),stellar.loadScript(stellar.GLOBAL_CONFIG.config.cdn.izitoast_js,()=>{r(e,t,l,o)})):r(e,t,l,o)},question:(e,t,l={},o=null,r=null,a=null)=>{function s(e,t,l,o,r,a){const{icon:s,time:n,transitionOut:i,messageColor:c,titleColor:d,backgroundColor:m,zindex:u}=l;iziToast.question({id:"question",icon:"Fontawesome",close:!1,overlay:!0,displayMode:"once",position:"center",messageColor:c||stellar.GLOBAL_CONFIG.plugins.message.messageColor,titleColor:d||stellar.GLOBAL_CONFIG.plugins.message.titleColor,backgroundColor:m||stellar.GLOBAL_CONFIG.plugins.message.backgroundColor,zindex:u||stellar.GLOBAL_CONFIG.plugins.message.zindex,icon:s||stellar.GLOBAL_CONFIG.plugins.message.icon.quection,timeout:n||stellar.GLOBAL_CONFIG.plugins.message.time.quection,title:e,message:t,buttons:[["<button><b>是</b></button>",(e,t)=>{e.hide({transitionOut:i||"fadeOut"},t,"button"),o&&o(e,t)}],["<button><b>否</b></button>",(e,t)=>{e.hide({transitionOut:i||"fadeOut"},t,"button"),r&&r(e,t)}]],onClosed:(e,t,l)=>{a&&a(e,t,l)}})}"undefined"==typeof iziToast?(stellar.loadCSS(stellar.GLOBAL_CONFIG.config.cdn.izitoast_css),stellar.loadScript(stellar.GLOBAL_CONFIG.config.cdn.izitoast_js,()=>{s(e,t,l,o,r,a)})):s(e,t,l,o,r,a)},hideMessage:(e=null)=>{const t=document.querySelector(".iziToast");function l(e){iziToast.hide({},t),e&&e()}t?"undefined"==typeof iziToast?(stellar.loadCSS(stellar.GLOBAL_CONFIG.config.cdn.izitoast_css),stellar.loadScript(stellar.GLOBAL_CONFIG.config.cdn.izitoast_js,()=>{l(e)})):l(e):e&&e()}},StellarApp=(()=>{const t={init:()=>{stellar.dom.header&&(scrollCorrection=stellar.dom.header.clientHeight+16),window.onresize=()=>{document.documentElement.clientWidth<500?stellar.isMobile=1:stellar.isMobile=0,stellar.isMobile!=stellar.isMobileOld&&(t.setGlobalHeaderMenuEvent(),t.setHeader(),t.setHeaderSearch())},stellar.scroll.push(t.scrollEventCallBack,"scrollEventCallBack")},event:()=>{stellar.dom.$(document.getElementById("scroll-down"))?.on("click",function(){t.scrolltoElement(stellar.dom.bodyAnchor)}),stellar.dom.$(document.querySelector("a.button.start"))?.on("click",function(){t.scrolltoElement(stellar.dom.bodyAnchor)});var e=document.querySelector(".l_left");e&&!e.querySelectorAll("widget").length&&document.querySelector(".l_main").classList.add("no_sidebar"),document.body.oncopy=function(){util.messageCopyright()}},setRelativeDate:e=>{e.forEach(e=>{var t=e.getAttribute("datetime"),t=util.diffDate(t,!0);t&&(e.innerText=t)})},registerTabsTag:()=>{document.querySelectorAll(".tabs .nav-tabs .tab").forEach(o=>{o.addEventListener("click",e=>{if(e.preventDefault(),e.stopPropagation(),!o.classList.contains("active")){var l=o.parentNode.children;let t;for(let e=0;e<l.length;++e)l[e].classList.contains("active")?(t=document.getElementById(l[e].querySelector("a").classList[0].replace("#","")),l[e].classList.remove("active")):l[e]===o&&o.classList.add("active");e=document.getElementById(o.querySelector("a").classList[0].replace("#",""));e.classList.add("active"),t.classList.remove("active"),e.dispatchEvent(new Event("tabs:click",{bubbles:!0}))}})}),window.dispatchEvent(new Event("tabs:register"))},setIsMobile:()=>{document.documentElement.clientWidth<500?(stellar.isMobile=1,stellar.isMobileOld=1):(stellar.isMobile=0,stellar.isMobileOld=0)},setHeader:()=>{var o;pdata.ispage&&(stellar.dom.wrapper?.find(".nav-sub .title")?.html(document.title.split(" - ")[0]),stellar.dom.comment=stellar.dom.$(document.getElementById("s-comment")),stellar.dom.commentTarget=stellar.dom.$(document.querySelector(".l_main div#comments")),stellar.dom.commentTarget&&stellar.dom.comment?stellar.dom.comment.click(e=>{e.preventDefault(),e.stopPropagation(),t.scrolltoElement(stellar.dom.commentTarget),e.stopImmediatePropagation()}):stellar.dom.comment&&(stellar.dom.comment.style.display="none"),stellar.isMobile)&&(stellar.dom.toc=stellar.dom.$(document.getElementById("s-toc")),stellar.dom.tocTarget=stellar.dom.$(document.querySelector(".l_left .widget-wrapper.toc")),o=!0,stellar.dom.tocTarget&&stellar.dom.toc?(stellar.dom.toc.click(e=>{e.stopPropagation(),stellar.dom.tocTarget.toggleClass("active"),stellar.dom.toc.toggleClass("active");var e=document.querySelector("widget.toc>.widget-body"),t=stellar.dom.tocTarget.querySelector(".toc-item.active-current>.toc-link"),l=e.clientHeight/2;l<t.offsetTop?(e.scrollTo({top:t.offsetTop-l+t.clientHeight,behavior:"smooth"}),o=!0):o&&(e.scrollTo({top:0,behavior:"smooth"}),o=!1)}),stellar.dom.$(document).click(function(e){e.stopPropagation(),stellar.dom.tocTarget&&stellar.dom.tocTarget.removeClass("active"),stellar.dom.toc?.removeClass("active")})):stellar.dom.toc&&(stellar.dom.toc.style.display="none"))},setHeaderMenuSelection:()=>{stellar.dom.headerMenu=stellar.dom.$(document.querySelectorAll("#l_header .navigation,#l_cover .navigation,#l_side .navigation")),stellar.dom.headerMenu.forEach(e=>{var t=stellar.dom.$(e).find("li a.active"),t=(t&&t.removeClass("active"),stellar.dom.$(e).find("div a.active"));t&&t.removeClass("active")});var t=location.pathname.replace(/\/|%|\./g,""),e=(t=0==t.length?"home":t).match(/page\d{0,}$/g),e=(e&&(e=e[0],t=t.split(e)[0]),t.match(/index.html/));e&&(e=e[0],t=t.split(e)[0]),(t=t.replace(/(\[|\]|~|#|@)/g,"\\$1"))&&stellar.dom.headerMenu&&stellar.dom.headerMenu.forEach(e=>{e=e.querySelector("[active-action=action-"+t+"]");e&&stellar.dom.$(e).addClass("active")})},nextSiteMenu:()=>{var t=document.querySelector(".widget.nextsite");if(t){var l=t.querySelector("li.menu-item-active");l&&l.removeClass(".menu-item-active");let e=location.pathname.replace(/\/|%|\./g,"");l=(e=0==e.length?"home":e).match(/page\d{0,}$/g),l=(l&&(l=l[0],e=e.split(l)[0]),e.match(/index.html/)),l=(l&&(l=l[0],e=e.split(l)[0]),e=e.replace(/(\[|\]|~|#|@)/g,"\\$1"),t.querySelector("[active-action=action-"+e+"]"));l?.parentElement&&stellar.dom.$(l.parentElement).addClass("menu-item-active")}},setGlobalHeaderMenuEvent:()=>{stellar.isMobile?document.querySelectorAll("#l_header .m-phone li").forEach(function(e){e.querySelector(".list-v")&&stellar.dom.$(e).click(function(e){e.stopPropagation(),e.currentTarget.parentElement.childNodes.forEach(function(e){"[object HTMLLIElement]"==Object.prototype.toString.call(e)&&e.childNodes.forEach(function(e){"[object HTMLUListElement]"==Object.prototype.toString.call(e)&&stellar.dom.$(e).hide()})});var t=e.currentTarget.children;for(let e=0;e<t.length;e++){var l=t[e];"menu"===stellar.dom.$(l).title?stellar.dom.$(l).display="flex":stellar.dom.$(l).show()}dark_header_icon()},0)}):document.querySelectorAll("#wrapper .m-pc li > a[href]").forEach(function(e){stellar.dom.$(e.parentElement).click(function(e){e.stopPropagation(),e.target.origin==e.target.baseURI&&document.querySelectorAll("#wrapper .m-pc .list-v").forEach(function(e){stellar.dom.$(e).hide()})},0)}),t.setPageHeaderMenuEvent()},setPageHeaderMenuEvent:()=>{stellar.isMobile&&stellar.dom.$(document).click(function(e){stellar.dom.mPhoneList.forEach(function(e){stellar.dom.$(e).hide()})})},setHeaderSearch:()=>{stellar.isMobile&&stellar.dom.switcher&&(stellar.dom.switcher.click(function(e){e.stopPropagation(),stellar.dom.header.toggleClass("z_search-open"),stellar.dom.switcher.toggleClass("active")}),stellar.dom.$(document).click(function(e){stellar.dom.header.removeClass("z_search-open"),stellar.dom.switcher.removeClass("active")}),stellar.dom.search.click(function(e){e.stopPropagation()}))},scrollEventCallBack:()=>{var e=stellar.dom.bodyAnchor.offsetTop-scrollCorrection,t=stellar.scroll.getScrollTop();stellar.dom.topBtn&&(t>stellar.dom.bodyAnchor.offsetTop?(stellar.dom.topBtn.addClass("show"),0<stellar.scroll.del?stellar.dom.topBtn.removeClass("hl"):stellar.dom.topBtn.addClass("hl")):stellar.dom.topBtn.removeClass("show").removeClass("hl")),stellar.dom.header&&(-1<t-e?stellar.dom.header.addClass("show"):stellar.dom.header.removeClass("show")),pdata.ispage&&stellar.dom.wrapper&&(0<stellar.scroll.del&&100<t?stellar.dom.wrapper.addClass("sub"):stellar.scroll.del<0&&stellar.dom.wrapper.removeClass("sub")),stellar.isMobile&&(pdata.ispage&&stellar.dom.tocTarget&&stellar.dom.toc&&(stellar.dom.tocTarget.removeClass("active"),stellar.dom.toc.removeClass("active")),stellar.dom.mPhoneList)&&stellar.dom.mPhoneList.forEach(function(e){stellar.dom.$(e).hide()})},scrolltoElement:(e,t=scrollCorrection)=>{stellar.scroll.to(e,{top:e.getBoundingClientRect().top+document.documentElement.scrollTop-t})},setScrollAnchor:()=>{stellar.dom.topBtn&&stellar.dom.bodyAnchor&&stellar.dom.topBtn.click(e=>{e.preventDefault(),e.stopPropagation(),t.scrolltoElement(stellar.dom.bodyAnchor),e.stopImmediatePropagation()})}};return{init_layout:()=>{t.init(),t.event(),t.setIsMobile(),t.setRelativeDate(document.querySelectorAll("#post-meta time")),t.registerTabsTag(),t.setHeader(),t.setHeaderMenuSelection(),t.setGlobalHeaderMenuEvent(),t.setHeaderSearch(),t.setScrollAnchor(),t.nextSiteMenu()},scrolltoElement:t.scrolltoElement}})(),highlightKeyWords=(Object.freeze(StellarApp),(()=>{let c={markNum:0,markNextId:-1,startFromURL:()=>{var e=decodeURI(new URL(location.href).searchParams.get("keyword")),e=e?e.split(" "):[],t=document.querySelector(".l_main");1==e.length&&"null"==e[0]||(c.start(e,t),c.scrollToFirstHighlightKeywordMark())},scrollToFirstHighlightKeywordMark:()=>{c.scrollToNextHighlightKeywordMark("0")||stellar.requestAnimationFrame(c.scrollToFirstHighlightKeywordMark)},scrollToNextHighlightKeywordMark:e=>{var e=e||(c.markNextId+1)%c.markNum;c.markNextId=parseInt(e);let t=document.getElementById("keyword-mark-"+c.markNextId);return t||(c.markNextId=(c.markNextId+1)%c.markNum,t=document.getElementById("keyword-mark-"+c.markNextId)),t&&(e=stellar.dom.header?stellar.dom.header.offsetHeight:0,stellar.scroll.to(t,{addTop:-e-10,behavior:"instant"})),t},scrollToPrevHighlightKeywordMark:e=>{var e=e||(c.markNextId-1+c.markNum)%c.markNum;c.markNextId=parseInt(e);let t=document.getElementById("keyword-mark-"+c.markNextId);return t||(c.markNextId=(c.markNextId-1+c.markNum)%c.markNum,t=document.getElementById("keyword-mark-"+c.markNextId)),t&&(e=stellar.dom.header?stellar.dom.header.offsetHeight:0,stellar.scroll.to(t,{addTop:-e-5,behavior:"instant"})),t},start:(l,e)=>{if(c.markNum=0,l.length&&e&&(1!=l.length||"null"!=l[0])){console.log(l);for(var t=document.createTreeWalker(e,NodeFilter.SHOW_TEXT,null),o=[];t.nextNode();)t.currentNode.parentNode.matches("button, select, textarea")||o.push(t.currentNode);o.forEach(e=>{var[t]=c.getIndexByWord(l,e.nodeValue);t.length&&(t=c.mergeIntoSlice(0,e.nodeValue.length,t),c.highlightText(e,t,"keyword"),c.highlightStyle())})}},getIndexByWord:(e,r,a=!1)=>{const s=[],n=new Set;return e.forEach(t=>{var e=document.createElement("div"),l=(e.innerText=t,(t=e.innerHTML).length);if(0!==l){let e=0;var o;for(a||(r=r.toLowerCase(),t=t.toLowerCase());-1<(o=r.indexOf(t,e));)s.push({position:o,word:t}),n.add(t),e=o+l}}),s.sort((e,t)=>e.position!==t.position?e.position-t.position:t.word.length-e.word.length),[s,n]},mergeIntoSlice:(e,t,l)=>{var o;let{position:r,word:a}=l[0];for(var s=[],n=new Set;r+a.length<=t&&0!==l.length;){n.add(a),s.push({position:r,length:a.length});var i=r+a.length;for(l.shift();0!==l.length&&(o=l[0],r=o.position,a=o.word,i>r);)l.shift()}return{hits:s,start:e,end:t,count:n.size}},highlightText:(t,e,l)=>{var o=t.nodeValue;let r=e.start;var a,s,n=[];for({position:a,length:s}of e.hits){var i=document.createTextNode(o.substring(r,a));r=a+s;let e=document.createElement("mark");e.className=l,(e=c.highlightStyle(e)).appendChild(document.createTextNode(o.substr(a,s))),n.push(i,e)}t.nodeValue=o.substring(r,e.end),n.forEach(e=>{t.parentNode.insertBefore(e,t)})},highlightStyle:e=>{if(e)return e.id="keyword-mark-"+c.markNum,c.markNum++,e.style.background="var(--theme-color-opa)",e.style["border-bottom"]="1px dashed var(--theme-color)",e.style.color="var(--theme-color)",e.style["border-radius"]="4px",e.style["font-weight"]="bold",e},cleanHighlightStyle:()=>{document.querySelectorAll(".keyword").forEach(e=>{e.style.background="transparent",e.style["border-bottom"]=null,e.style.color=null,e.style["border-radius"]=null,e.style["font-weight"]=null})}};return{start:(e,t)=>{c.start(e,t)},startFromURL:()=>{c.startFromURL()},scrollToNextHighlightKeywordMark:e=>{c.scrollToNextHighlightKeywordMark(e)},scrollToPrevHighlightKeywordMark:e=>{c.scrollToPrevHighlightKeywordMark(e)},cleanHighlightStyle:()=>{c.cleanHighlightStyle()}}})()),DOMController=(Object.freeze(highlightKeyWords),{visible:(e,t=!0)=>{e&&(e.style.display=!0===t?"block":"none")},remove:e=>{document.querySelectorAll(e).forEach(e=>{e.remove()})},removeList:e=>{e.forEach(e=>{DOMController.remove(e)})},setAttribute:(e,t,l)=>{document.querySelectorAll(e).forEach(e=>{e.setAttribute(t,l)})},setAttributeList:e=>{e.forEach(e=>{DOMController.setAttribute(e[0],e[1],e[2])})},setStyle:(e,t,l)=>{document.querySelectorAll(e).forEach(e=>{e.style[t]=l})},setStyleList:e=>{e.forEach(e=>{DOMController.setStyle(e[0],e[1],e[2])})},fadeIn:e=>{if(e)return e.style.visibility="visible",e.style.opacity=1,e.style.display="block",e.style.transition="all 0.5s linear",e},fadeOut:e=>{if(e)return e.style.visibility="hidden",e.style.opacity=0,e.style.display="none",e.style.transition="all 0.5s linear",e},fadeToggle:e=>{if(e)return e="hidden"==e.style.visibility?DOMController.fadeIn(e):DOMController.fadeOut(e)},fadeToggleList:e=>{e.forEach(e=>{DOMController.fadeToggle(e)})},hasClass:(e,t)=>{if(e)return e.className.match(new RegExp("(\\s|^)"+t+"(\\s|$)"))},addClass:(e,t)=>{if(e)return e.classList.add(t),e},removeClass:(e,t)=>{if(e)return e.classList.remove(t),e},toggleClass:(e,t)=>{if(e)return DOMController.hasClass(e,t)?DOMController.removeClass(e,t):DOMController.addClass(e,t),e},toggleClassList:e=>{e.forEach(e=>{DOMController.toggleClass(e[0],e[1])})}});Object.freeze(DOMController),stellar.requestAnimationFrame(()=>{StellarApp.init_layout(),highlightKeyWords.startFromURL()});
+console.log('\n' + '%c Stellar v' + stellar.GLOBAL_CONFIG.version + ' %c\n' + stellar.GLOBAL_CONFIG.github + '\n', 'color:#e8fafe;background:#03c7fa;padding:8px;border-radius:4px', 'margin-top:8px');
+
+// variables
+let messageCopyrightShow = 0;
+
+// utils
+const util = {
+
+  // https://github.com/jerryc127/hexo-theme-butterfly
+  diffDate: (d, more = false) => {
+    const dateNow = new Date()
+    const datePost = new Date(d)
+    const dateDiff = dateNow.getTime() - datePost.getTime()
+    const minute = 1000 * 60
+    const hour = minute * 60
+    const day = hour * 24
+    const month = day * 30
+
+    let result
+    if (more) {
+      const monthCount = dateDiff / month
+      const dayCount = dateDiff / day
+      const hourCount = dateDiff / hour
+      const minuteCount = dateDiff / minute
+
+      if (monthCount > 12) {
+        result = null
+      } else if (monthCount >= 1) {
+        result = parseInt(monthCount) + ' ' + stellar.GLOBAL_CONFIG.config.date_suffix.month
+      } else if (dayCount >= 1) {
+        result = parseInt(dayCount) + ' ' + stellar.GLOBAL_CONFIG.config.date_suffix.day
+      } else if (hourCount >= 1) {
+        result = parseInt(hourCount) + ' ' + stellar.GLOBAL_CONFIG.config.date_suffix.hour
+      } else if (minuteCount >= 1) {
+        result = parseInt(minuteCount) + ' ' + stellar.GLOBAL_CONFIG.config.date_suffix.min
+      } else {
+        result = stellar.GLOBAL_CONFIG.config.date_suffix.just
+      }
+    } else {
+      result = parseInt(dateDiff / day)
+    }
+    return result
+  },
+
+  toggle: (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.toggle("display");
+    }
+  },
+
+  // 消息提示：复制
+  messageCopyright: () => {
+    // 消息提示 复制时弹出
+    if (stellar.GLOBAL_CONFIG.plugins.message.enable
+      && stellar.GLOBAL_CONFIG.plugins.message.copyright.enable
+      && messageCopyrightShow < 1) {
+      messageCopyrightShow++;
+      hud.message(stellar.GLOBAL_CONFIG.plugins.message.copyright.title,
+        stellar.GLOBAL_CONFIG.plugins.message.copyright.message, {
+        icon: stellar.GLOBAL_CONFIG.plugins.message.copyright.icon,
+        transitionIn: 'flipInX',
+        transitionOut: 'flipOutX',
+        displayMode: 1
+      });
+    }
+  },
+
+  // 复制字符串到剪切板
+  writeClipText: async (str) => {
+    try {
+      await navigator.clipboard
+        .writeText(str);
+      return await Promise.resolve();
+    } catch (e) {
+      const input = document.createElement('textarea');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.innerHTML = str;
+      input.select();
+      try {
+        let result_1 = document.execCommand('copy');
+        document.body.removeChild(input);
+        if (!result_1 || result_1 === 'unsuccessful') {
+          return Promise.reject('未经用户许可!');
+        } else {
+          return Promise.resolve();
+        }
+      } catch (e_1) {
+        document.body.removeChild(input);
+        return Promise.reject(
+          '当前浏览器不支持复制功能，请检查更新或更换其他浏览器操作!'
+        );
+      }
+    }
+  },
+
+  // 元素display:block时添加动画
+  animateIn: (ele, text) => {
+    ele.style.display = "block";
+    ele.style.animation = text;
+  },
+
+  // 元素display:none时添加动画
+  animateOut: (ele, text) => {
+    ele.addEventListener("animationend", function f() {
+      ele.style.display = "";
+      ele.style.animation = "";
+      ele.removeEventListener("animationend", f);
+    });
+    ele.style.animation = text;
+  },
+
+  // 元素加载动画 延迟
+  animateDelayedElements: (parentSelector, childSelector, delayTime) => {
+    const parents = document.querySelectorAll(parentSelector);
+    parents.forEach((parent, index) => {
+      const children = parent.querySelectorAll(childSelector);
+      children.forEach((child, childIndex) => {
+        child.style.animationDelay = `${delayTime + childIndex * 0.2}s`;
+      });
+    });
+  },
+
+  // 颜色格式转换：hex ==> rgb
+  //使用
+  // hexToRGB("#27ae60ff"); // 'rgba(39, 174, 96, 255)'
+  // hexToRGB("27ae60");    // 'rgb(39, 174, 96)'
+  // hexToRGB("#fff");      // 'rgb(255, 255, 255)'
+  hexToRgba: (hex) => {
+    let alpha = false,
+        h = hex.slice(hex.startsWith("#") ? 1 : 0);
+    if (h.length === 3) h = [...h].map((x) => x + x).join("");
+    else if (h.length === 8) alpha = true;
+    h = parseInt(h, 16);
+    let r = h >>> (alpha ? 24 : 16);
+    let g = (h & (alpha ? 0x00ff0000 : 0x00ff00)) >>> (alpha ? 16 : 8);
+    let b = (h & (alpha ? 0x0000ff00 : 0x0000ff)) >>> (alpha ? 8 : 0);
+    let a = alpha ? h & 0x000000ff : 1;
+    return {r, g, b, a}
+  },
+
+  // 颜色格式转换：rgb ==> hsl
+  rgbToHsl: (r, g, b) => {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    let l = Math.max(r, g, b);
+    let s = l - Math.min(r, g, b);
+    let h = s
+      ? l === r
+        ? (g - b) / s
+        : l === g
+        ? 2 + (b - r) / s
+        : 4 + (r - g) / s
+      : 0;
+    h = 60 * h < 0 ? 60 * h + 360 : 60 * h;
+    s = 100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0);
+    l = (100 * (2 * l - s)) / 2;
+    return { h, s, l };
+  },
+  
+}
+
+const hud = {
+  // 消息提示：标准
+  message: (title, message, option = {}, done = null) => {
+    if (typeof iziToast === "undefined") {
+      stellar.loadCSS(stellar.GLOBAL_CONFIG.config.cdn.izitoast_css)
+      stellar.loadScript(stellar.GLOBAL_CONFIG.config.cdn.izitoast_js, () => {
+        tozashMessage(title, message, option, done);
+      });
+    } else {
+      tozashMessage(title, message, option, done);
+    }
+    function tozashMessage(title, message, option, done) {
+      const {
+        icon,
+        time,
+        position,
+        transitionIn,
+        transitionOut,
+        messageColor,
+        titleColor,
+        backgroundColor,
+        zindex,
+        displayMode
+      } = option;
+      iziToast.show({
+        layout: '2',
+        icon: 'Fontawesome',
+        closeOnEscape: 'true',
+        displayMode: displayMode || 'replace',
+        transitionIn: transitionIn || stellar.GLOBAL_CONFIG.plugins.message.transitionIn,
+        transitionOut: transitionOut || stellar.GLOBAL_CONFIG.plugins.message.transitionOut,
+        messageColor: messageColor || stellar.GLOBAL_CONFIG.plugins.message.messageColor,
+        titleColor: titleColor || stellar.GLOBAL_CONFIG.plugins.message.titleColor,
+        backgroundColor: backgroundColor || stellar.GLOBAL_CONFIG.plugins.message.backgroundColor,
+        zindex: zindex || stellar.GLOBAL_CONFIG.plugins.message.zindex,
+        icon: icon || stellar.GLOBAL_CONFIG.plugins.message.icon.default,
+        timeout: time || stellar.GLOBAL_CONFIG.plugins.message.time.default,
+        position: position || stellar.GLOBAL_CONFIG.plugins.message.position,
+        title: title,
+        message: message,
+        // theme: stellar.dark.mode,
+        onClosed: () => {
+          if (done) done();
+        },
+      });
+    }
+  },
+
+  // 消息提示：询问
+  question: (title, message, option = {}, success = null, cancel = null, done = null) => {
+    if (typeof iziToast === "undefined") {
+      stellar.loadCSS(stellar.GLOBAL_CONFIG.config.cdn.izitoast_css)
+      stellar.loadScript(stellar.GLOBAL_CONFIG.config.cdn.izitoast_js, () => {
+        tozashQuestion(title, message, option, success, cancel, done);
+      });
+    } else {
+      tozashQuestion(title, message, option, success, cancel, done);
+    }
+
+    function tozashQuestion(title, message, option, success, cancel, done) {
+      const {
+        icon,
+        time,
+        position,
+        transitionIn,
+        transitionOut,
+        messageColor,
+        titleColor,
+        backgroundColor,
+        zindex
+      } = option;
+      iziToast.question({
+        id: 'question',
+        icon: 'Fontawesome',
+        close: false,
+        overlay: true,
+        displayMode: 'once',
+        position: 'center',
+        messageColor: messageColor || stellar.GLOBAL_CONFIG.plugins.message.messageColor,
+        titleColor: titleColor || stellar.GLOBAL_CONFIG.plugins.message.titleColor,
+        backgroundColor: backgroundColor || stellar.GLOBAL_CONFIG.plugins.message.backgroundColor,
+        zindex: zindex || stellar.GLOBAL_CONFIG.plugins.message.zindex,
+        icon: icon || stellar.GLOBAL_CONFIG.plugins.message.icon.quection,
+        timeout: time || stellar.GLOBAL_CONFIG.plugins.message.time.quection,
+        title: title,
+        message: message,
+        buttons: [
+          ['<button><b>是</b></button>', (instance, toast) => {
+            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
+            if (success) success(instance, toast)
+          }],
+          ['<button><b>否</b></button>', (instance, toast) => {
+            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
+            if (cancel) cancel(instance, toast)
+          }]
+        ],
+        onClosed: (instance, toast, closedBy) => {
+          if (done) done(instance, toast, closedBy);
+        }
+      });
+    }
+  },
+
+  // 消息提示：隐藏
+  hideMessage: (done = null) => {
+    const toast = document.querySelector('.iziToast');
+    if (!toast) {
+      if (done) done()
+      return;
+    }
+
+    if (typeof iziToast === "undefined") {
+      stellar.loadCSS(stellar.GLOBAL_CONFIG.config.cdn.izitoast_css)
+      stellar.loadScript(stellar.GLOBAL_CONFIG.config.cdn.izitoast_js, () => {
+        hideMessage(done);
+      });
+    } else {
+      hideMessage(done);
+    }
+
+    function hideMessage(done) {
+      iziToast.hide({}, toast);
+      if (done) done();
+    }
+  },
+
+}
+
+const StellarApp = (() => {
+  const fn = {};
+  // 初始化
+  fn.init = () => {
+    if (stellar.dom.header) {
+      scrollCorrection = stellar.dom.header.clientHeight + 16;
+    }
+
+    window.onresize = () => {
+      if (document.documentElement.clientWidth < 500) {
+        stellar.isMobile = 1;
+      } else {
+        stellar.isMobile = 0;
+      }
+      if (stellar.isMobile != stellar.isMobileOld) {
+        fn.setGlobalHeaderMenuEvent();
+        fn.setHeader();
+        fn.setHeaderSearch();
+      }
+    }
+    stellar.scroll.push(fn.scrollEventCallBack, "scrollEventCallBack")
+  }
+  fn.event = () => {
+    stellar.dom.$(document.getElementById("scroll-down"))?.on('click', function () {
+      fn.scrolltoElement(stellar.dom.bodyAnchor);
+    });
+
+    stellar.dom.$(document.querySelector('a.button.start'))?.on('click', function () {
+      fn.scrolltoElement(stellar.dom.bodyAnchor);
+    });
+
+    // 如果 sidebar 为空，隐藏 sidebar。
+    const sidebar = document.querySelector(".l_left")
+    if (sidebar) {
+      const widgetList = sidebar.querySelectorAll("widget")
+      if (!widgetList.length) {
+        document.querySelector(".l_main").classList.add("no_sidebar")
+      }
+    }
+
+    // 消息提示 复制时弹出
+    document.body.oncopy = function () {
+      util.messageCopyright();
+    };
+  }
+  fn.setRelativeDate = (selector) => {
+    selector.forEach(item => {
+      const $this = item
+      const timeVal = $this.getAttribute('datetime')
+      let relativeValue = util.diffDate(timeVal, true)
+      if (relativeValue) {
+        $this.innerText = relativeValue
+      }
+    })
+  }
+  /**
+   * Tabs tag listener (without twitter bootstrap).
+   */
+  fn.registerTabsTag = () => {
+    // Binding `nav-tabs` & `tab-content` by real time permalink changing.
+    document.querySelectorAll('.tabs .nav-tabs .tab').forEach(element => {
+      element.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        // Prevent selected tab to select again.
+        if (element.classList.contains('active')) return;
+        // Add & Remove active class on `nav-tabs` & `tab-content`.
+        // [...element.parentNode.children].forEach(target => {
+        //   target.classList.toggle('active', target === element);
+        // });
+        let eleTabs = element.parentNode.children;
+        let oldTActive;
+        for (let i = 0; i < eleTabs.length; ++i) {
+          if (eleTabs[i].classList.contains('active')) {
+            oldTActive = document.getElementById(eleTabs[i].querySelector('a').classList[0].replace('#', ''));
+            eleTabs[i].classList.remove('active');
+          } else if (eleTabs[i] === element) {
+            element.classList.add('active');
+          }
+        }
+        // https://stackoverflow.com/questions/20306204/using-queryselector-with-ids-that-are-numbers
+        // const tActive = document.getElementById(element.querySelector('a').getAttribute('href').replace('#', ''));
+        const tActive = document.getElementById(element.querySelector('a').classList[0].replace('#', ''));
+
+        tActive.classList.add('active');
+        oldTActive.classList.remove('active');
+        
+        // Trigger event
+        tActive.dispatchEvent(new Event('tabs:click', {
+          bubbles: true
+        }));
+      });
+    });
+
+    window.dispatchEvent(new Event('tabs:register'));
+  }
+
+  fn.setIsMobile = () => {
+    if (document.documentElement.clientWidth < 500) {
+      stellar.isMobile = 1;
+      stellar.isMobileOld = 1;
+    } else {
+      stellar.isMobile = 0;
+      stellar.isMobileOld = 0;
+    }
+  }
+
+  // 设置导航栏
+  fn.setHeader = () => {
+    // !!! 此处的Dom对象需要重载 !!!
+    if (!pdata.ispage) return;
+
+    // 填充二级导航文章标题 【移动端 PC】
+    stellar.dom.wrapper?.find('.nav-sub .title')?.html(document.title.split(" - ")[0]);
+
+    // ====== bind events to every btn =========
+    // 评论按钮 【移动端 PC】
+    stellar.dom.comment = stellar.dom.$(document.getElementById("s-comment")); // 评论按钮  桌面端 移动端
+    stellar.dom.commentTarget = stellar.dom.$(document.querySelector('.l_main div#comments')); // 评论区域
+    if (stellar.dom.commentTarget && stellar.dom.comment) {
+      stellar.dom.comment.click(e => { // 评论按钮点击后 跳转到评论区域
+        e.preventDefault();
+        e.stopPropagation();
+        // stellar.cleanContentVisibility();
+        fn.scrolltoElement(stellar.dom.commentTarget);
+        e.stopImmediatePropagation();
+      });
+    } else {
+      if (stellar.dom.comment) stellar.dom.comment.style.display = 'none'; // 关闭了评论，则隐藏评论按钮
+    }
+
+    // 移动端toc目录按钮 【移动端】
+    if (stellar.isMobile) {
+      stellar.dom.toc = stellar.dom.$(document.getElementById("s-toc")); // 目录按钮  仅移动端
+      stellar.dom.tocTarget = stellar.dom.$(document.querySelector('.l_left .widget-wrapper.toc')); // 侧边栏的目录列表
+      var isFirst = true;
+      if (stellar.dom.tocTarget && stellar.dom.toc) {
+        // 点击移动端目录按钮 激活目录按钮 显示侧边栏的目录列表
+        stellar.dom.toc.click((e) => {
+          e.stopPropagation();
+          stellar.dom.tocTarget.toggleClass('active');
+          stellar.dom.toc.toggleClass('active');
+
+          var tocWidget = document.querySelector("widget.toc>.widget-body");
+          var target = stellar.dom.tocTarget.querySelector('.toc-item.active-current>.toc-link');
+          var mid = tocWidget.clientHeight / 2;
+          var offsetTop = target.offsetTop;
+          if (offsetTop > mid) {
+            tocWidget.scrollTo({
+              top: target.offsetTop - mid + target.clientHeight,
+              behavior: "smooth"
+            });
+            isFirst = true;
+          } else if (isFirst) {
+            tocWidget.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+            isFirst = false;
+          }
+        });
+        // 点击空白 隐藏
+        stellar.dom.$(document).click(function (e) {
+          e.stopPropagation();
+          if (stellar.dom.tocTarget) {
+            stellar.dom.tocTarget.removeClass('active');
+          }
+          stellar.dom.toc?.removeClass('active');
+        });
+      } else if (stellar.dom.toc) stellar.dom.toc.style.display = 'none'; // 隐藏toc目录按钮
+    }
+  }
+
+  // 设置导航栏菜单选中状态  【移动端 PC】
+  fn.setHeaderMenuSelection = () => {
+    // !!! 此处的Dom对象需要重载 !!!
+    stellar.dom.headerMenu = stellar.dom.$(document.querySelectorAll('#l_header .navigation,#l_cover .navigation,#l_side .navigation')); // 导航列表
+
+    // 先把已经激活的取消激活
+    stellar.dom.headerMenu.forEach(element => {
+      let li = stellar.dom.$(element).find('li a.active')
+      if (li)
+        li.removeClass('active')
+      let div = stellar.dom.$(element).find('div a.active')
+      if (div)
+        div.removeClass('active')
+    });
+
+    // replace '%' '/' '.'
+    var idname = location.pathname.replace(/\/|%|\./g, '');
+    if (idname.length == 0) {
+      idname = 'home';
+    }
+    var page = idname.match(/page\d{0,}$/g);
+    if (page) {
+      page = page[0];
+      idname = idname.split(page)[0];
+    }
+    var index = idname.match(/index.html/);
+    if (index) {
+      index = index[0];
+      idname = idname.split(index)[0];
+    }
+    // 转义字符如 [, ], ~, #, @
+    idname = idname.replace(/(\[|\]|~|#|@)/g, '\\$1');
+    if (idname && stellar.dom.headerMenu) {
+      stellar.dom.headerMenu.forEach(element => {
+        // idname 不能为数字开头, 加一个 action- 前缀
+        let id = element.querySelector("[active-action=action-" + idname + "]")
+        if (id) {
+          stellar.dom.$(id).addClass('active')
+        }
+      });
+    }
+  }
+
+  // 导航栏激活设定
+  fn.nextSiteMenu = () => {
+    const element = document.querySelector('.widget.nextsite');
+    if (element) {
+      let activeItem = element.querySelector('li.menu-item-active');
+      if (activeItem) {
+        activeItem.removeClass('.menu-item-active');
+      }
+      let idname = location.pathname.replace(/\/|%|\./g, '');
+      if (idname.length == 0) {
+        idname = 'home';
+      }
+      var page = idname.match(/page\d{0,}$/g);
+      if (page) {
+        page = page[0];
+        idname = idname.split(page)[0];
+      }
+      var index = idname.match(/index.html/);
+      if (index) {
+        index = index[0];
+        idname = idname.split(index)[0];
+      }
+      // 转义字符如 [, ], ~, #, @
+      idname = idname.replace(/(\[|\]|~|#|@)/g, '\\$1');
+      let nowItem = element.querySelector("[active-action=action-" + idname + "]");
+      if (nowItem?.parentElement) {
+        stellar.dom.$(nowItem.parentElement).addClass('menu-item-active')
+      }
+    }
+  }
+
+  // 设置全局事件
+  fn.setGlobalHeaderMenuEvent = () => {
+    if (stellar.isMobile) {
+      // 【移动端】 关闭已经展开的子菜单 点击展开子菜单
+      document.querySelectorAll('#l_header .m-phone li').forEach(function (e) {
+        if (e.querySelector(".list-v")) {
+          // 点击菜单
+          stellar.dom.$(e).click(function (e) {
+            e.stopPropagation();
+            // 关闭已经展开的子菜单
+            e.currentTarget.parentElement.childNodes.forEach(function (e) {
+              if (Object.prototype.toString.call(e) == '[object HTMLLIElement]') {
+                e.childNodes.forEach(function (e) {
+                  if (Object.prototype.toString.call(e) == '[object HTMLUListElement]') {
+                    stellar.dom.$(e).hide()
+                  }
+                })
+              }
+            })
+            // 点击展开子菜单
+            let array = e.currentTarget.children
+            for (let index = 0; index < array.length; index++) {
+              const element = array[index];
+              if (stellar.dom.$(element).title === 'menu') { // 移动端菜单栏异常
+                stellar.dom.$(element).display = "flex"      // https://github.com/stellar-x/hexo-theme-stellar/issues/706
+              } else {
+                stellar.dom.$(element).show()
+              }
+            }
+            // 对明亮按钮进行处理
+            dark_header_icon();
+          }, 0);
+        }
+      })
+    } else {
+      // 【PC端】 hover时展开子菜单，点击时[target.baseURI==origin时]隐藏子菜单? 现有逻辑大部分情况不隐藏子菜单
+      document.querySelectorAll('#wrapper .m-pc li > a[href]').forEach(function (e) {
+        stellar.dom.$(e.parentElement).click(function (e) {
+          e.stopPropagation();
+          if (e.target.origin == e.target.baseURI) {
+            document.querySelectorAll('#wrapper .m-pc .list-v').forEach(function (e) {
+              stellar.dom.$(e).hide(); // 大概率不会执行
+            })
+          }
+        }, 0);
+      })
+    }
+    fn.setPageHeaderMenuEvent();
+  }
+
+  // 【移动端】隐藏子菜单
+  fn.setPageHeaderMenuEvent = () => {
+    if (!stellar.isMobile) return
+    // 【移动端】 点击空白处隐藏子菜单
+    stellar.dom.$(document).click(function (e) {
+      stellar.dom.mPhoneList.forEach(function (e) {
+        stellar.dom.$(e).hide();
+      })
+    });
+  }
+
+  // 设置导航栏搜索框 【移动端】
+  fn.setHeaderSearch = () => {
+    if (!stellar.isMobile) return;
+    if (!stellar.dom.switcher) return;
+    // 点击移动端搜索按钮
+    stellar.dom.switcher.click(function (e) {
+      e.stopPropagation();
+      stellar.dom.header.toggleClass('z_search-open'); // 激活移动端搜索框
+      stellar.dom.switcher.toggleClass('active'); // 移动端搜索按钮
+    });
+    // 点击空白取消激活
+    stellar.dom.$(document).click(function (e) {
+      stellar.dom.header.removeClass('z_search-open');
+      stellar.dom.switcher.removeClass('active');
+    });
+    // 移动端点击搜索框 停止事件传播
+    stellar.dom.search.click(function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  // 滚动事件回调们
+  fn.scrollEventCallBack = () => {
+    // 【移动端 PC】//////////////////////////////////////////////////////////////////////
+
+    // 显示/隐藏 Header导航 topBtn 【移动端 PC】
+    const showHeaderPoint = stellar.dom.bodyAnchor.offsetTop - scrollCorrection;
+    const scrollTop = stellar.scroll.getScrollTop(); // 滚动条距离顶部的距离
+
+    // topBtn
+    if (stellar.dom.topBtn) {
+      if (scrollTop > stellar.dom.bodyAnchor.offsetTop) {
+        stellar.dom.topBtn.addClass('show');
+        // 向上滚动高亮 topBtn
+        if (stellar.scroll.del > 0) {
+          stellar.dom.topBtn.removeClass('hl');
+        } else {
+          stellar.dom.topBtn.addClass('hl');
+        }
+      } else {
+        stellar.dom.topBtn.removeClass('show').removeClass('hl');
+      }
+    }
+
+    // Header导航
+    if (stellar.dom.header) {
+      if (scrollTop - showHeaderPoint > -1) {
+        stellar.dom.header.addClass('show');
+      } else {
+        stellar.dom.header.removeClass('show');
+      }
+    }
+
+    // 决定一二级导航栏的切换 【向上滚动切换为一级导航栏；向下滚动切换为二级导航栏】  【移动端 PC】
+    if (pdata.ispage && stellar.dom.wrapper) {
+      if (stellar.scroll.del > 0 && scrollTop > 100) { // 向下滚动
+        stellar.dom.wrapper.addClass('sub'); // <---- 二级导航显示
+      } else if (stellar.scroll.del < 0) { // 向上滚动
+        stellar.dom.wrapper.removeClass('sub'); // <---- 取消二级导航显示 一级导航显示
+      }
+    }
+
+    // 【移动端】//////////////////////////////////////////////////////////////////////
+    if (stellar.isMobile) {
+      // 【移动端】 页面滚动  隐藏 移动端toc目录按钮
+      if (pdata.ispage && stellar.dom.tocTarget && stellar.dom.toc) {
+        stellar.dom.tocTarget.removeClass('active');
+        stellar.dom.toc.removeClass('active');
+      }
+      // 【移动端】 滚动时隐藏子菜单
+      if (stellar.dom.mPhoneList) {
+        stellar.dom.mPhoneList.forEach(function (e) {
+          stellar.dom.$(e).hide();
+        })
+      }
+    }
+  }
+
+  // 校正页面定位（被导航栏挡住的区域）
+  fn.scrolltoElement = (elem, correction = scrollCorrection) => {
+    stellar.scroll.to(elem, {
+      top: elem.getBoundingClientRect().top + document.documentElement.scrollTop - correction
+    })
+  }
+
+  // 设置滚动锚点
+  fn.setScrollAnchor = () => {
+    // click topBtn 滚动至bodyAnchor 【移动端 PC】
+    if (stellar.dom.topBtn && stellar.dom.bodyAnchor) {
+      stellar.dom.topBtn.click(e => {
+        e.preventDefault();
+        e.stopPropagation();
+        fn.scrolltoElement(stellar.dom.bodyAnchor);
+        e.stopImmediatePropagation();
+      });
+    }
+
+  }
+
+  return {
+    init_layout: () => {
+      fn.init();
+      fn.event();
+      fn.setIsMobile();
+
+      fn.setRelativeDate(document.querySelectorAll('#post-meta time'));
+      fn.registerTabsTag();
+
+      fn.setHeader();
+      fn.setHeaderMenuSelection();
+      fn.setGlobalHeaderMenuEvent();
+      fn.setHeaderSearch();
+
+      fn.setScrollAnchor();
+
+      fn.nextSiteMenu();
+    },
+    scrolltoElement: fn.scrolltoElement
+  }
+})()
+Object.freeze(StellarApp);
+
+// highlightKeyWords 与 搜索功能搭配 https://github.com/next-theme/hexo-theme-next/blob/eb194a7258058302baf59f02d4b80b6655338b01/source/js/third-party/search/local-search.js
+// Question: 锚点稳定性未知
+// ToDo: 查找模式
+// 0. (/////////要知道浏览器自带全页面查找功能 CTRL + F)
+// 1. 右键开启查找模式 / 导航栏菜单开启?? / CTRL + F ???
+// 2. 查找模式面板 (可拖动? or 固定?)
+// 3. keyword mark id 从 0 开始编号 查找下一处 highlightKeyWords.scrollToNextHighlightKeywordMark() 查找上一处 scrollToPrevHighlightKeywordMark() 循环查找(取模%)
+// 4. 可输入修改 查找关键词 keywords(type:list)
+// 5. 区分大小写 caseSensitive (/ 全字匹配?? / 正则匹配??)
+// 6. 在选定区域中查找 querySelector ??
+// 7. 关闭查找模式
+// 8. 搜索跳转 (URL 入口) 自动开启查找模式 调用 scrollToNextHighlightKeywordMark()
+const highlightKeyWords = (() => {
+  let fn = {}
+  fn.markNum = 0
+  fn.markNextId = -1
+  fn.startFromURL = () => {
+    const params = decodeURI(new URL(location.href).searchParams.get('keyword'));
+    const keywords = params ? params.split(' ') : [];
+    const post = document.querySelector('.l_main');
+    if (keywords.length == 1 && keywords[0] == "null") {
+      return;
+    }
+    fn.start(keywords, post); // 渲染耗时较长
+    fn.scrollToFirstHighlightKeywordMark()
+  }
+  fn.scrollToFirstHighlightKeywordMark = () => {
+    // volantis.cleanContentVisibility();
+    let target = fn.scrollToNextHighlightKeywordMark("0");
+    if (!target) {
+      stellar.requestAnimationFrame(fn.scrollToFirstHighlightKeywordMark)
+    }
+  }
+  fn.scrollToNextHighlightKeywordMark = (id) => {
+    // Next Id
+    let input = id || (fn.markNextId + 1) % fn.markNum;
+    fn.markNextId = parseInt(input)
+    let target = document.getElementById("keyword-mark-" + fn.markNextId);
+    if (!target) {
+      fn.markNextId = (fn.markNextId + 1) % fn.markNum;
+      target = document.getElementById("keyword-mark-" + fn.markNextId);
+    }
+    if (target) {
+      let tempHeight = stellar.dom.header ? stellar.dom.header.offsetHeight : 0;
+      stellar.scroll.to(target, { addTop: - tempHeight - 10, behavior: 'instant' })
+    }
+    // Current target
+    return target
+  }
+  fn.scrollToPrevHighlightKeywordMark = (id) => {
+    // Prev Id
+    let input = id || (fn.markNextId - 1 + fn.markNum) % fn.markNum;
+    fn.markNextId = parseInt(input)
+    let target = document.getElementById("keyword-mark-" + fn.markNextId);
+    if (!target) {
+      fn.markNextId = (fn.markNextId - 1 + fn.markNum) % fn.markNum;
+      target = document.getElementById("keyword-mark-" + fn.markNextId);
+    }
+    if (target) {
+      let tempHeight = stellar.dom.header ? stellar.dom.header.offsetHeight : 0;
+      stellar.scroll.to(target, { addTop: - tempHeight - 5, behavior: 'instant' })
+    }
+    // Current target
+    return target
+  }
+  fn.start = (keywords, querySelector) => {
+    fn.markNum = 0
+    if (!keywords.length || !querySelector || (keywords.length == 1 && keywords[0] == "null")) return;
+    console.log(keywords);
+    const walk = document.createTreeWalker(querySelector, NodeFilter.SHOW_TEXT, null);
+    const allNodes = [];
+    while (walk.nextNode()) {
+      if (!walk.currentNode.parentNode.matches('button, select, textarea')) allNodes.push(walk.currentNode);
+    }
+    allNodes.forEach(node => {
+      const [indexOfNode] = fn.getIndexByWord(keywords, node.nodeValue);
+      if (!indexOfNode.length) return;
+      const slice = fn.mergeIntoSlice(0, node.nodeValue.length, indexOfNode);
+      fn.highlightText(node, slice, 'keyword');
+      fn.highlightStyle()
+    });
+  }
+  fn.getIndexByWord = (words, text, caseSensitive = false) => {
+    const index = [];
+    const included = new Set();
+    words.forEach(word => {
+      const div = document.createElement('div');
+      div.innerText = word;
+      word = div.innerHTML;
+
+      const wordLen = word.length;
+      if (wordLen === 0) return;
+      let startPosition = 0;
+      let position = -1;
+      if (!caseSensitive) {
+        text = text.toLowerCase();
+        word = word.toLowerCase();
+      }
+      while ((position = text.indexOf(word, startPosition)) > -1) {
+        index.push({ position, word });
+        included.add(word);
+        startPosition = position + wordLen;
+      }
+    });
+    index.sort((left, right) => {
+      if (left.position !== right.position) {
+        return left.position - right.position;
+      }
+      return right.word.length - left.word.length;
+    });
+    return [index, included];
+  };
+  fn.mergeIntoSlice = (start, end, index) => {
+    let item = index[0];
+    let { position, word } = item;
+    const hits = [];
+    const count = new Set();
+    while (position + word.length <= end && index.length !== 0) {
+      count.add(word);
+      hits.push({
+        position,
+        length: word.length
+      });
+      const wordEnd = position + word.length;
+
+      index.shift();
+      while (index.length !== 0) {
+        item = index[0];
+        position = item.position;
+        word = item.word;
+        if (wordEnd > position) {
+          index.shift();
+        } else {
+          break;
+        }
+      }
+    }
+    return {
+      hits,
+      start,
+      end,
+      count: count.size
+    };
+  };
+  fn.highlightText = (node, slice, className) => {
+    const val = node.nodeValue;
+    let index = slice.start;
+    const children = [];
+    for (const { position, length } of slice.hits) {
+      const text = document.createTextNode(val.substring(index, position));
+      index = position + length;
+      let mark = document.createElement('mark');
+      mark.className = className;
+      mark = fn.highlightStyle(mark)
+      mark.appendChild(document.createTextNode(val.substr(position, length)));
+      children.push(text, mark);
+    }
+    node.nodeValue = val.substring(index, slice.end);
+    children.forEach(element => {
+      node.parentNode.insertBefore(element, node);
+    });
+  }
+  fn.highlightStyle = (mark) => {
+    if (!mark) return;
+    mark.id = "keyword-mark-" + fn.markNum;
+    fn.markNum++;
+    // mark.style.background = "#ff0";
+    // mark.style["border-bottom"] = "1px dashed #ff2a2a";
+    // mark.style["color"] = "#ff2a2a";
+    mark.style.background = "var(--theme-color-opa)";
+    mark.style["border-bottom"] = "1px dashed var(--theme-color)";
+    mark.style["color"] = "var(--theme-color)";
+    mark.style["border-radius"] = "4px";
+    mark.style["font-weight"] = "bold";
+    return mark
+  }
+  fn.cleanHighlightStyle = () => {
+    document.querySelectorAll(".keyword").forEach(mark => {
+      mark.style.background = "transparent";
+      mark.style["border-bottom"] = null;
+      mark.style["color"] = null;
+      mark.style["border-radius"] = null;
+      mark.style["font-weight"] = null;
+    })
+  }
+  return {
+    start: (keywords, querySelector) => {
+      fn.start(keywords, querySelector)
+    },
+    startFromURL: () => {
+      fn.startFromURL()
+    },
+    scrollToNextHighlightKeywordMark: (id) => {
+      fn.scrollToNextHighlightKeywordMark(id)
+    },
+    scrollToPrevHighlightKeywordMark: (id) => {
+      fn.scrollToPrevHighlightKeywordMark(id)
+    },
+    cleanHighlightStyle: () => {
+      fn.cleanHighlightStyle()
+    },
+  }
+})()
+Object.freeze(highlightKeyWords);
+
+/* DOM 控制 */
+const DOMController = {
+  /**
+   * 控制元素显隐
+   */
+  visible: (ele, type = true) => {
+    if (ele) ele.style.display = type === true ? 'block' : 'none';
+  },
+
+  /**
+   * 移除元素
+   */
+  remove: (param) => {
+    const node = document.querySelectorAll(param);
+    node.forEach(ele => {
+      ele.remove();
+    })
+  },
+
+  removeList: (list) => {
+    list.forEach(param => {
+      DOMController.remove(param)
+    })
+  },
+
+  /**
+   * 设置属性
+   */
+  setAttribute: (param, attrName, attrValue) => {
+    const node = document.querySelectorAll(param);
+    node.forEach(ele => {
+      ele.setAttribute(attrName, attrValue)
+    })
+  },
+
+  setAttributeList: (list) => {
+    list.forEach(item => {
+      DOMController.setAttribute(item[0], item[1], item[2])
+    })
+  },
+
+  /**
+   * 设置样式
+   */
+  setStyle: (param, styleName, styleValue) => {
+    const node = document.querySelectorAll(param);
+    node.forEach(ele => {
+      ele.style[styleName] = styleValue;
+    })
+  },
+
+  setStyleList: (list) => {
+    list.forEach(item => {
+      DOMController.setStyle(item[0], item[1], item[2])
+    })
+  },
+
+  fadeIn: (e) => {
+    if (!e) return;
+    e.style.visibility = "visible";
+    e.style.opacity = 1;
+    e.style.display = "block";
+    e.style.transition = "all 0.5s linear";
+    return e
+  },
+
+  fadeOut: (e) => {
+    if (!e) return;
+    e.style.visibility = "hidden";
+    e.style.opacity = 0;
+    e.style.display = "none";
+    e.style.transition = "all 0.5s linear";
+    return e
+  },
+
+  fadeToggle: (e) => {
+    if (!e) return;
+    if (e.style.visibility == "hidden") {
+      e = DOMController.fadeIn(e)
+    } else {
+      e = DOMController.fadeOut(e)
+    }
+    return e
+  },
+
+  fadeToggleList: (list) => {
+    list.forEach(param => {
+      DOMController.fadeToggle(param)
+    })
+  },
+
+  hasClass: (e, c) => {
+    if (!e) return;
+    return e.className.match(new RegExp('(\\s|^)' + c + '(\\s|$)'));
+  },
+
+  addClass: (e, c) => {
+    if (!e) return;
+    e.classList.add(c);
+    return e
+  },
+
+  removeClass: (e, c) => {
+    if (!e) return;
+    e.classList.remove(c);
+    return e
+  },
+
+  toggleClass: (e, c) => {
+    if (!e) return;
+    if (DOMController.hasClass(e, c)) {
+      DOMController.removeClass(e, c)
+    } else {
+      DOMController.addClass(e, c)
+    }
+    return e
+  },
+
+  toggleClassList: (list) => {
+    list.forEach(item => {
+      DOMController.toggleClass(item[0], item[1])
+    })
+  }
+}
+Object.freeze(DOMController);
+
+
+// StellarApp.init();
+stellar.requestAnimationFrame(() => {
+  StellarApp.init_layout();
+  highlightKeyWords.startFromURL();
+});
