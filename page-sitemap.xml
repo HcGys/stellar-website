@@ -10,8 +10,8 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/</loc>
-        <lastmod>2024-01-11T09:57:54.974Z</lastmod>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/read.html</loc>
+        <lastmod>2024-01-11T14:07:03.892Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
     </url>
@@ -19,8 +19,8 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/read.html</loc>
-        <lastmod>2023-12-27T13:17:10.214Z</lastmod>
+        <loc>https://stellar.listentothewind.cn/wiki/git/</loc>
+        <lastmod>2024-01-11T09:57:54.974Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
     </url>
@@ -145,7 +145,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/releases.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/pages.html</loc>
         <lastmod>2023-12-25T20:07:21.550Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -154,7 +154,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/pages.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/releases.html</loc>
         <lastmod>2023-12-25T20:07:21.550Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -235,7 +235,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/wiki-settings.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/widgets.html</loc>
         <lastmod>2023-12-25T20:07:21.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -244,7 +244,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/widgets.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/wiki-settings.html</loc>
         <lastmod>2023-12-25T20:07:21.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
