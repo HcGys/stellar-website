@@ -82,7 +82,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/usage.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/git/git-server.html</loc>
         <lastmod>2023-12-25T20:08:04.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -91,7 +91,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/git-server.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/git/usage.html</loc>
         <lastmod>2023-12-25T20:08:04.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -136,15 +136,6 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/fcircle.html</loc>
-        <lastmod>2023-12-25T20:07:21.550Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/notes.html</loc>
         <lastmod>2023-12-25T20:07:21.550Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -155,6 +146,15 @@
     
     <url>
         <loc>https://stellar.listentothewind.cn/wiki/stellar/pages.html</loc>
+        <lastmod>2023-12-25T20:07:21.550Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/fcircle.html</loc>
         <lastmod>2023-12-25T20:07:21.550Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -235,7 +235,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/widgets.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/wiki-settings.html</loc>
         <lastmod>2023-12-25T20:07:21.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -244,7 +244,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/wiki-settings.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/widgets.html</loc>
         <lastmod>2023-12-25T20:07:21.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
