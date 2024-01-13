@@ -82,7 +82,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/git-server.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/git/usage.html</loc>
         <lastmod>2023-12-25T20:08:04.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -91,7 +91,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/git/usage.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/git/git-server.html</loc>
         <lastmod>2023-12-25T20:08:04.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -199,7 +199,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/express.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/</loc>
         <lastmod>2023-12-25T20:07:21.550Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -208,7 +208,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/tag-plugins/express.html</loc>
         <lastmod>2023-12-25T20:07:21.550Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
