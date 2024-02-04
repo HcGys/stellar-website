@@ -1372,6 +1372,7 @@ height: calc(100% + 16px);
 
 .gsc-replies {
 padding-bottom: 1rem;
+border: none;
 }
 
 button.color-text-link.hover\:underline {
