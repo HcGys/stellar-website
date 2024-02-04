@@ -1183,11 +1183,10 @@ body *::-webkit-scrollbar-thumb {
   cursor: pointer;
   border-radius: 2px;
 }
-body *::hover::-webkit-scrollbar-thumb {
+body *:hover::-webkit-scrollbar-thumb {
     background: #ccc;
 }
-
-body *::hover::-webkit-scrollbar-thumb::hover {
+body *:hover::-webkit-scrollbar-thumb:hover {
   background: #808080;
 }
 
