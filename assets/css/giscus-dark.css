@@ -1179,27 +1179,23 @@ border: 1px solid #383d42 !important;
 background-image: url(https://static.listentothewind.cn/stellar/img/foot-dark.png);
 }
 
-body * {
-&::-webkit-scrollbar {
+body *::-webkit-scrollbar {
   height: 4px;
   width: 4px;
 }
-&::-webkit-scrollbar-track-piece {
+body *::-webkit-scrollbar-track-piece {
   background: transparent;
 }
-&::-webkit-scrollbar-thumb {
+body *::-webkit-scrollbar-thumb {
   background: transparent;
   cursor: pointer;
   border-radius: 2px;
 }
-&:hover {
-  &::-webkit-scrollbar-thumb {
+body *:hover::-webkit-scrollbar-thumb {
   background: #4d4d4d;
-  &:hover {
-      background: #858585;
-  }
-  }
 }
+body *:hover::-webkit-scrollbar-thumb:hover {
+  background: #858585;
 }
 
 /* 字体 */
