@@ -1365,7 +1365,13 @@ height: calc(100% + 16px);
 
 .gsc-replies {
 padding-bottom: 1rem;
-border: none;
+border-end-end-radius: 0;
+border-end-start-radius: 0;
+}
+
+.markdown.color-border-primary.gsc-comment-box-preview {
+  background-color: var(--color-canvas-inset,var(--color-input-contrast-bg));
+  border-radius: 0.25rem;
 }
 
 button.color-text-link.hover\:underline {
