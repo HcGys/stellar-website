@@ -1171,27 +1171,24 @@ thead > tr > th {
 background-color: var(--color-neutral-muted) !important;
 }
 
-body * {
-&::-webkit-scrollbar {
+body *::-webkit-scrollbar {
   height: 4px;
   width: 4px;
 }
-&::-webkit-scrollbar-track-piece {
+body *::-webkit-scrollbar-track-piece {
   background: transparent;
 }
-&::-webkit-scrollbar-thumb {
+body *::-webkit-scrollbar-thumb {
   background: transparent;
   cursor: pointer;
   border-radius: 2px;
 }
-&:hover {
-  &::-webkit-scrollbar-thumb {
+body *::hover::-webkit-scrollbar-thumb {
     background: #ccc;
-    &:hover {
-      background: #808080;
-    }
-  }
 }
+
+body *::hover::-webkit-scrollbar-thumb::hover {
+  background: #808080;
 }
 
 
