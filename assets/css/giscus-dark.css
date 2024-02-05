@@ -1118,8 +1118,7 @@ main {
 
   --color-social-reaction-bg-hover: var(
   --color-scale-gray-7);
-  --color-social-reaction-bg-reacted-hover: var(
-  --color-scale-blue-8);
+  --color-social-reaction-bg-reacted-hover: rgb(34 55 94);
 }
 
 main .pagination-loader-container {
