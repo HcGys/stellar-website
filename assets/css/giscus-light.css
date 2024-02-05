@@ -1102,7 +1102,7 @@ main {
 --color-accent-fg: #0969da;
 --color-accent-emphasis: #0969da;
 --color-accent-muted: rgb(84 174 255 / 40%);
---color-accent-subtle: #ddf4ff;
+--color-accent-subtle: rgb(195 224 238);
 --color-success-fg: #1a7f37;
 --color-attention-fg: #9a6700;
 --color-attention-muted: rgb(212 167 44 / 40%);
