@@ -145,7 +145,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/releases.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/notes.html</loc>
         <lastmod>2024-03-25T16:10:58.790Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -154,7 +154,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/notes.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/releases.html</loc>
         <lastmod>2024-03-25T16:10:58.790Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -172,7 +172,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/sidebar.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/pages.html</loc>
         <lastmod>2024-03-25T16:10:58.786Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -181,7 +181,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/wiki/stellar/pages.html</loc>
+        <loc>https://stellar.listentothewind.cn/wiki/stellar/sidebar.html</loc>
         <lastmod>2024-03-25T16:10:58.786Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -217,7 +217,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/page/policy/</loc>
+        <loc>https://stellar.listentothewind.cn/page/cc/license.html</loc>
         <lastmod>2024-03-25T16:10:58.583Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
@@ -226,7 +226,7 @@
     
     
     <url>
-        <loc>https://stellar.listentothewind.cn/page/cc/license.html</loc>
+        <loc>https://stellar.listentothewind.cn/page/policy/</loc>
         <lastmod>2024-03-25T16:10:58.583Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
