@@ -62,7 +62,10 @@
             },
             "symbolSize": "4",
             "symbol": "circle",
-            "smooth": true
+            "smooth": true,
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
+            }
         },
         "radar": {
             "itemStyle": {
@@ -73,12 +76,18 @@
             },
             "symbolSize": "4",
             "symbol": "circle",
-            "smooth": true
+            "smooth": true,
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
+            }
         },
         "bar": {
             "itemStyle": {
                 "barBorderWidth": "0",
                 "barBorderColor": "#b3b3b3"
+            },
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
             }
         },
         "pie": {
@@ -94,36 +103,54 @@
             "itemStyle": {
                 "borderWidth": "0",
                 "borderColor": "#b3b3b3"
+            },
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
             }
         },
         "boxplot": {
             "itemStyle": {
                 "borderWidth": "0",
                 "borderColor": "#b3b3b3"
+            },
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
             }
         },
         "parallel": {
             "itemStyle": {
                 "borderWidth": "0",
                 "borderColor": "#b3b3b3"
+            },
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
             }
         },
         "sankey": {
             "itemStyle": {
                 "borderWidth": "0",
                 "borderColor": "#b3b3b3"
+            },
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
             }
         },
         "funnel": {
             "itemStyle": {
                 "borderWidth": "0",
                 "borderColor": "#b3b3b3"
+            },
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
             }
         },
         "gauge": {
             "itemStyle": {
                 "borderWidth": "0",
                 "borderColor": "#b3b3b3"
+            },
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
             }
         },
         "candlestick": {
@@ -133,6 +160,9 @@
                 "borderColor": "#e43c59",
                 "borderColor0": "#91ca8c",
                 "borderWidth": 1
+            },
+            "label": {
+                "fontFamily": 'LXGW WenKai Screen,Menlo,Monaco,Consolas,system-ui,"Courier New",monospace,sans-serif'
             }
         },
         "graph": {
