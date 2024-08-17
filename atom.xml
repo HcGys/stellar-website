@@ -36,6 +36,10 @@
     
     <category term="child" scheme="https://stellar.listentothewind.cn/blog/categories/%E6%B5%8B%E8%AF%95/parent/child/"/>
     
+    <category term="ceshi1" scheme="https://stellar.listentothewind.cn/blog/categories/ceshi1/"/>
+    
+    <category term="child" scheme="https://stellar.listentothewind.cn/blog/categories/ceshi1/child/"/>
+    
     
     <category term="博客" scheme="https://stellar.listentothewind.cn/blog/tags/%E5%8D%9A%E5%AE%A2/"/>
     
