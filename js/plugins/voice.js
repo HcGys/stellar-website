@@ -1,1 +1,11 @@
-function draw(e){var t=[],o=e.getChannelData(0),r=[],n=[];for(let e=0;e<o.length;e+=50)t.push(o[e]);for(let e=0,o=t.length/10;e<o;e++){var a=t.slice(10*e,10*(e+1));r.push(Math.max(...a)),n.push(Math.min(...a))}e=document.querySelector("#canvas");if(e.getContext){var i=e.getContext("2d"),e=(e.width=r.length,i.createLinearGradient(0,0,e.width,0));e.addColorStop(0,"yellow"),e.addColorStop(.5,"red"),e.addColorStop(1,"blue"),i.fillStyle=e,i.beginPath(),i.moveTo(0,75);for(let e=0;e<r.length;e++)i.lineTo(0+e+.5,75-50*r[e]);for(let e=n.length-1;0<=e;e--)i.lineTo(0+e+.5,75+50*Math.abs(n[e]));i.fill()}}function setVoiceWaveCard(e){(e="forEach"in(e||{})?e:document.querySelectorAll(".voice>audio")).forEach(r=>{if(1===r.nodeType){r.crossOrigin="anonymous";let o=new(window.AudioContext||window.webkitAudioContext),t=o.createBufferSource();var e=r.querySelector("source").src;fetch(e,{method:"GET",responseType:"arraybuffer"}).then(e=>{if(e.ok)return e.arrayBuffer();throw new Error("Network response was not ok.")}).then(e=>{o.decodeAudioData(e).then(e=>{draw(e),r.parentElement.querySelector(".voice-seconds").innerHTML=r.duration,t.buffer=e,t.connect(o.destination)})}).catch(function(e){console.log(e)})}})}
+function createVoiceDom(c){let n="";for(let a=0;a<c.length;++a){let e=c[a];e.currentTime;var r=e.duration,i=r+2,o=e.parentElement,l=o.querySelector(".pause-btn"),d=o.querySelector(".play-btn"),v=(o.querySelector(".voice-seconds").innerHTML=""+r,l.addEventListener("click",()=>{e.pause()}),d.addEventListener("click",()=>{e.play()}),document.createElement("div"));v.className="voice-wave-"+a;for(let e=0;e<i;e++){var m=document.createElement("span");m.className="voice-wave-item",v.append(m)}let t=`
+            .voice-wave-${a} {
+                width: 3px;
+                border-radius: 3px;
+            }
+        `;for(let e=0;e<i;++e)t+=`
+            .voice-wavei-${a} span.voice-wave-item:nth-child(${e}) {
+                height: ${10*(Math.floor(8*Math.random())+3)}%;
+                background: var(--chat-voice-block);
+            }
+            `;n+=t}var e=document.createElement("style");e.setAttribute("type","text/css"),e.innerHTML=n,document.getElementsByTagName("head").item(0).appendChild(e)}
