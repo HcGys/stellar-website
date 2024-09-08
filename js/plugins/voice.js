@@ -1,13 +1,13 @@
-function createVoiceDom(r){for(let s=0;s<r.length;++s){let e=r[s];e.loop=!1;e.currentTime;let t=e.parentElement,a=t.querySelector(".pause-btn"),n=t.querySelector(".play-btn"),i=t.querySelector(".voice-seconds"),l;isNaN(e.duration)||e.duration===1/0?e.addEventListener("durationchange",()=>{l=createCssStyle(e,t,i,s)}):l=createCssStyle(e,t,i,s),e.addEventListener("ended",()=>{e.pause(),a.style.display="none",n.style.display="flex",e.currentTime=0,l.classList.remove("active")}),t.addEventListener("click",()=>{"flex"===a.style.display?(e.pause(),a.style.display="none",n.style.display="flex",e.currentTime=0,l.classList.remove("active")):(e.play(),a.style.display="flex",n.style.display="none",l.classList.add("active"))})}}function createCssStyle(e,t,a,n){var e=e.duration,i=Math.floor(e),l=25<i+2?25:i+2,s=(a.innerHTML=`${99<i?"..":i}"`,25<i+2&&(t.style.width="100%"),document.createElement("div"));s.className="voice-wave voice-wave-"+(n+1);for(let e=0;e<l;e++){var r=document.createElement("span");r.className="voice-wave-item",s.append(r)}t.insertBefore(s,t.querySelector(".voice-metas"));let o=`
-    .voice-wave.voice-wave-${n+1}::before {
+function createVoiceDom(s){for(let r=0;r<s.length;++r){let e=s[r];e.loop=!1;e.currentTime;let t=e.parentElement,n=t.querySelector(".pause-btn"),a=t.querySelector(".play-btn"),l=t.querySelector(".voice-seconds"),i;isNaN(e.duration)||e.duration===1/0?e.addEventListener("durationchange",()=>{i=createCssStyle(e,t,l,r)}):i=createCssStyle(e,t,l,r),e.addEventListener("ended",()=>{e.pause(),n.style.display="none",a.style.display="flex",e.currentTime=0}),t.addEventListener("click",()=>{"flex"===n.style.display?(e.pause(),n.style.display="none",a.style.display="flex",e.currentTime=0):(e.play(),n.style.display="flex",a.style.display="none")})}}function createCssStyle(e,t,n,a){var e=e.duration,l=Math.floor(e),i=25<l+2?25:l+2,r=(n.innerHTML=`${99<l?"..":l}"`,25<l+2&&(t.style.width="100%"),document.createElement("div"));r.className="voice-wave voice-wave-"+(a+1);for(let e=0;e<i;e++){var s=document.createElement("span");s.className="voice-wave-item",r.append(s)}t.insertBefore(r,t.querySelector(".voice-metas"));let o=`
+    .voice-wave.voice-wave-${a+1}::before {
         transition: left ${e}s linear;
         -moz-transition: left ${e}s linear;
         -webkit-transition: left ${e}s linear;
         -o-transition: left ${e}s linear;
     }
-    `;for(let e=0;e<l;++e)o+=`
-        .voice-wave-${n+1} span.voice-wave-item:nth-child(${e+1}) {
+    `;for(let e=0;e<i;++e)o+=`
+        .voice-wave-${a+1} span.voice-wave-item:nth-child(${e+1}) {
             height: ${10*(Math.floor(8*Math.random())+3)}%;
             margin-left: ${0==e?0:2}px;
         }
-        `;a=document.createElement("style");return a.setAttribute("type","text/css"),a.innerHTML=o,document.getElementsByTagName("head").item(0).appendChild(a),s}
+        `;n=document.createElement("style");return n.setAttribute("type","text/css"),n.innerHTML=o,document.getElementsByTagName("head").item(0).appendChild(n),r}
