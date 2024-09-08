@@ -7,7 +7,6 @@ function createVoiceDom(o){for(let i=0;i<o.length;++i){let e=o[i];e.loop=!1;e.cu
         width: 1px;
         background: var(--text-p1);
         content: "";
-        display: none;
     }
     `;for(let e=0;e<l;++e)r+=`
         .voice-wave-${n+1} span.voice-wave-item:nth-child(${e+1}) {
