@@ -1,16 +1,16 @@
-function createVoiceDom(a){for(let t=0;t<a.length;++t){let e=a[t];e.loop=!1;e.currentTime;isNaN(e.duration)||e.duration===1/0?e.addEventListener("durationchange",()=>{createWave(e,voiceDom,voiceSecondsSpan,t)}):createWave(e,voiceDom,voiceSecondsSpan,t)}}function createWave(e,t,a,i){var n=e.duration,s=Math.floor(n),l=25<s+2?25:s+2,o=(a.innerHTML=`${99<s?"..":s}"`,2*(2*l-1)),r=(25<s+2&&(t.style.width="100%"),document.createElement("div"));let c=document.createElement("div");c.className="play-line",r.append(c),r.className="voice-wave voice-wave-"+(i+1);for(let e=0;e<l;e++){var d=document.createElement("span");d.className="voice-wave-item",r.append(d)}t.insertBefore(r,t.querySelector(".voice-metas"));let v=t.querySelector(".pause-btn"),m=t.querySelector(".play-btn"),a=t.querySelector(".voice-seconds"),p=(e.addEventListener("ended",()=>{e.pause(),v.style.display="none",m.style.display="flex",e.currentTime=0,c.classList.remove("active"),c.classList.add("back")}),t.addEventListener("click",()=>{"flex"===v.style.display?(e.pause(),v.style.display="none",m.style.display="flex",e.currentTime=0,c.classList.remove("active"),c.classList.add("back")):(e.play(),v.style.display="flex",m.style.display="none",c.classList.add("active"),c.classList.remove("back"))}),`
-    .voice-wave.voice-wave-${i+1}>.play-line {
-        transition: transform ${n}s linear;
-        -moz-transition: transform ${n}s linear;
-        -webkit-transition: transform ${n}s linear;
-        -o-transition: transform ${n}s linear;
+function createVoiceDom(a){for(let t=0;t<a.length;++t){let e=a[t];e.loop=!1;e.currentTime;isNaN(e.duration)||e.duration===1/0?e.addEventListener("durationchange",()=>{createCssStyle(e,t)}):createCssStyle(e,t)}}function createCssStyle(e,t){var a=e.duration,s=Math.floor(a),n=25<s+2?25:s+2,i=e.parentElement;let l=i.querySelector(".pause-btn"),r=i.querySelector(".play-btn");i.querySelector(".voice-seconds").innerHTML=`${99<s?"..":s}"`;var o=2*(2*n-1),c=(25<s+2&&(i.style.width="100%"),document.createElement("div"));let d=document.createElement("div");d.className="play-line",c.append(d),c.className="voice-wave voice-wave-"+(t+1);for(let e=0;e<n;e++){var v=document.createElement("span");v.className="voice-wave-item",c.append(v)}i.insertBefore(c,i.querySelector(".voice-metas")),e.addEventListener("ended",()=>{e.pause(),l.style.display="none",r.style.display="flex",e.currentTime=0,d.classList.remove("active"),d.classList.add("back")}),i.addEventListener("click",()=>{"flex"===l.style.display?(e.pause(),l.style.display="none",r.style.display="flex",e.currentTime=0,d.classList.remove("active"),d.classList.add("back")):(e.play(),l.style.display="flex",r.style.display="none",d.classList.add("active"),d.classList.remove("back"))});let m=`
+    .voice-wave.voice-wave-${t+1}>.play-line {
+        transition: transform ${a}s linear;
+        -moz-transition: transform ${a}s linear;
+        -webkit-transition: transform ${a}s linear;
+        -o-transition: transform ${a}s linear;
     }
-    .voice-wave.voice-wave-${i+1}>.play-line.active {
+    .voice-wave.voice-wave-${t+1}>.play-line.active {
         transform: translateX(${o}px);
     }
-    `);for(let e=0;e<l;++e)p+=`
-        .voice-wave-${i+1} span.voice-wave-item:nth-child(${e+1}) {
+    `;for(let e=0;e<n;++e)m+=`
+        .voice-wave-${t+1} span.voice-wave-item:nth-child(${e+1}) {
             height: ${10*(Math.floor(8*Math.random())+3)}%;
             margin-left: ${0==e?0:2}px;
         }
-        `;s=document.createElement("style");s.setAttribute("type","text/css"),s.innerHTML=p,document.getElementsByTagName("head").item(0).appendChild(s)}
+        `;s=document.createElement("style");return s.setAttribute("type","text/css"),s.innerHTML=m,document.getElementsByTagName("head").item(0).appendChild(s),c}
